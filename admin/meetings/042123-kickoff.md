@@ -1,6 +1,17 @@
-# Team 2 Meeting
-# Date: 04-21
+# Learning Llamas (Team 2) Meeting
+## Kick Off Meeting
+## 4/21/2023, 4:00-4:45pm on Zoom
 ---
+## Attendance
+- [x] Aaron
+- [x] Daniel
+- [x] Fuyao
+- [x] Ian
+- [x] Jane
+- [x] Leon
+- [x] Preston
+- [x] Zheng 
+- [x] Zichen
 ## Team brand tasks
 - [x] Team name
 - [x] Team motto
