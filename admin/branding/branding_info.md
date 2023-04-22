@@ -12,4 +12,4 @@ Llama
 ## Colors
 Purple: #e6d2f8
 ## Fonts
-Desyrel
+Desyrel, Cute Font
