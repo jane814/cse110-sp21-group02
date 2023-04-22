@@ -11,7 +11,7 @@
 - [Fuyao](https://fuyaozhao1018.github.io/Project/) (Developer): a-little-bit-professional Poker dealer.
 - [Ian](https://jayaian.github.io/software-isnt-hard/) (Leader): brushes teeth at least twice a day.
 - [Jane](https://jane814.github.io/CSE110/) (Developer): loves the Sherlock Holmes series
-- [Leon]() (Developer): the biggest FC Barcelona fan. 
+- [Leon]() (Designer): the biggest FC Barcelona fan. 
 - [Preston](https://preellis.github.io/CSE-100-Github-Pages/) (Developer): former card game pro.
 - [Zichen]() (Developer): plays left-back in soccer.
 - [Zheng](https://rhythmgrind.github.io/personalPage/) (Designer): can recycle water.
