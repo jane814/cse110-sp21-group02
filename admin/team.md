@@ -1,6 +1,10 @@
 <h1 align="center">Hi 👋, we are the Learning Llamas</h1>
 <h3 align="center">Learning from failures, striving for excellence</h3>
 
+<p align="center">
+  <img src="../branding/logo_fat.jpg" alt="Logo">
+</p>
+
 - 👯 Team Members
 - Aaron: https://amccully.github.io/cse110/ 
 - Andric: 
