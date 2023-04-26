@@ -1,4 +1,4 @@
-# 8ball webapp
+# 8ball webapp exploration
 
 [Demo link](https://cse110-sp21-group02.github.io/8ball/)
 
