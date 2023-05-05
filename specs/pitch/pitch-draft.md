@@ -1,20 +1,20 @@
-#Starting Pitch Draft
+# Starting Pitch Draft
 
-##Problem:
-###Problem statement: 
+## Problem:
+### Problem statement: 
 
-###User Profiles
+### User Profiles
 
-##Appitite:
+## Appitite:
 
-##Solution:
-###Statement of Purpose/Goals
+## Solution:
+### Statement of Purpose/Goals
 
-###Features
+### Features
 
-###UI/UX
+### UI/UX
 
-##Rabbit Holes:
+## Rabbit Holes:
 
-##No Gos:
+## No Gos:
 
