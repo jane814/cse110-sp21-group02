@@ -14,7 +14,7 @@
 
 ### UI/UX:
 
-## Rabbit Holes:
+## Rabbit Holes
 
-## No Gos:
+## No Gos
 
