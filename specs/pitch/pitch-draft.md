@@ -1,18 +1,18 @@
 # Starting Pitch Draft
 
-## Problem:
+## Problem
 ### Problem statement: 
 
-### User Profiles
+### User Profiles:
 
-## Appitite:
+## Appitite
 
-## Solution:
-### Statement of Purpose/Goals
+## Solution
+### Statement of Purpose/Goals:
 
-### Features
+### Features:
 
-### UI/UX
+### UI/UX:
 
 ## Rabbit Holes:
 
