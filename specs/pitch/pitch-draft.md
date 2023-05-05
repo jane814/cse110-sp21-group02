@@ -68,10 +68,10 @@ Animation while waiting for response
 The general theme for our UI/UX is a mix between a clasical and modern style.
 
 Homescreen:
-IMage here
+![Homescreen](Home Screen.jpg)
 
 Tarot Reader:
-IMAGE here
+![Tarot Reader](Tarot Reader.jpg)
 
 ## Rabbit Holes
 1. Data: depending on the app design and features we would need to store and write a large amount of custom fortunes. Workaround: Use an AI generative system, implement as an additional feature if time allows.
