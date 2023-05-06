@@ -68,9 +68,11 @@ Animation while waiting for response
 The general theme for our UI/UX is a mix between a clasical and modern style.
 
 Homescreen:
-![Homescreen](specs/pitch/Home Screen.png)
+
+![Homescreen](https://github.com/cse110-sp21-group02/cse110-sp21-group02/blob/f2e4699ff2d7fa76bc74e76163b48091a1857d5f/specs/pitch/Home%20Screen.png)
 
 Tarot Reader:
+
 ![Tarot Reader](https://github.com/cse110-sp21-group02/cse110-sp21-group02/blob/0414f4cbf28c10d0161c11d300e89a3ebb334bcf/specs/pitch/Tarot%20Reader.png)
 
 ## Rabbit Holes
