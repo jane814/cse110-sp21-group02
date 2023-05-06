@@ -71,7 +71,7 @@ Homescreen:
 ![Homescreen](specs/pitch/Home Screen.png)
 
 Tarot Reader:
-![Tarot Reader](specs/pitch/Tarot Reader.png)
+![Tarot Reader](https://github.com/cse110-sp21-group02/cse110-sp21-group02/blob/0414f4cbf28c10d0161c11d300e89a3ebb334bcf/specs/pitch/Tarot%20Reader.png)
 
 ## Rabbit Holes
 1. Data: depending on the app design and features we would need to store and write a large amount of custom fortunes. Workaround: Use an AI generative system, implement as an additional feature if time allows.
