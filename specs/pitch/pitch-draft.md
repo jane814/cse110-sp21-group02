@@ -30,6 +30,19 @@ What are they looking for specifically?
 1. No negative predictions
 2. encouragement, guidance, meaning. give them hope.
 
+## Hypothetical User profiles:
+
+User #1: Linda
+
+She is a 21-year-old student at university. She is a double-major student studying communication and cs. Most of her time is occupied by lectures and homework, so she doesn’t have an active social life. She is constantly stressed about upcoming exams and essays. Sometimes, she feels like losing control of her own life and her life is full of uncertainty: “Am I going to finish my CS homework on time?” “Am I going to get that summer internship?” “How well should I do on the midterm so that I can get an A in the end?” For Linda, the most peaceful time in her day was the one and half hour before bed. She does not want to go to bed right away after finishing homework, meanwhile, she doesn’t want to waste her time on social media. Therefore, she decided to play some of tarot cards fortune-telling apps in her spare time occasionally. On the one hand, she loves the straightforward interface and the constant interaction in the game, on the other hand, she felt her stress about the future was relied on by playing tarot cards. 
+
+
+User #2:  John
+
+He is a 37-year-old receptionist working for a mid-size construction company. He works from 9 am-6 pm every day. His job is repetitive and boring. There is no creative element in his works. His salary was a little less than average compared to other 37 years old. He has children to raise and mortgage to pay. Every day on the way back home, he always thinks about the future and reflects on his current life. He feels a deep sense of hollowness and despair because he sees himself doing the same meaningless job for the next 20 years without accomplishing any major achievement in life. Recently, he started to play tarot cards on a fortune-telling app. He soon begins to love this game because he found hope in life by playing tarot cards. He seeks guidance and direction in this game, which gives him meaning to his repetitive job. 
+
+
+
 ## Appitite
 We have a total of **5 Weeks** to complete our project.
 
