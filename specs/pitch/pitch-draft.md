@@ -10,7 +10,7 @@ Students:
 Generally a younger age group, as they are not working adults they have more time on their hands, therefore on things they look for in entertainment. Once  source of entertainment for them could be fortune telling. 
 
 What are they looking for specifically?
-1.Interactions: young people prefer to use fortune telling apps that ask you questions (about your recent situations). requires engagement of some sort. sometimes, even vocal or image interactions. 
+1. Interactions: young people prefer to use fortune telling apps that ask you questions (about your recent situations). requires engagement of some sort. sometimes, even vocal or image interactions. 
 2. Unpredictable: The responses are not just yes no or uncertain, they want unique and personalized answers
 3. Visually appealing (looking fancy and modern but easy to use)
 
