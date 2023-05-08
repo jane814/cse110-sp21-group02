@@ -124,4 +124,6 @@ Tarot Reader:
   - Tarot Reading Website
 - [Tarot Moon](https://tarotmoon.com/)
   - Tarot Reading Website
+- [Tarot Card Decks](https://www.yourtarotlife.com/blog/tarot/types-and-use-of-tarot-cards/)
+  - Different Tarot Card Decks
 
