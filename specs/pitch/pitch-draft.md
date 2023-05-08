@@ -67,15 +67,27 @@ Purpose: To have an outlet that provides people with unique and positive insight
 
 ### Features:
 Basic: 
-Three card tarot reading for user input
-Adjustable screen size for desktop or mobile
-Offline support in response generation
+1. Three card tarot reading for user input
+  * Create: We will need to create a way to store data on the 78 Tarot cards and their meaning
+  * Read: We will then read data from the user by having them select some Tarot cards
+  * Update: We will use the read information to update the output that we give to the user
+  * Delete: We will delete previous input and data to give a fresh fortune everytime
+2. Adjustable screen size for desktop or mobile
+  * Read: We will need to ensure that users are able to input responses on any device so that we can read their responses
+3. Offline support in response generation
+  * Update: We will use the read information to update the output that we give to the user
 
 Additional:
-Personalized respones from Chat GPT API
-Link sharing
-Voice Interaction
-Animation while waiting for response
+1. Personalized respones from Chat GPT API
+  * Update: We will use Chat GPT API to generate our output from the data we read from out user input. We will then use the AI generated response to update the user.
+2. Link sharing
+  * Delete: Before deleting the users fortune, we will give them the option of sharing their response through a link.
+3. Voice Interaction
+  * Update: When the user is updated with the response we will use voice audio in addition to the written response to present the fortune. 
+4. Animation while waiting for response
+  * Update: While updating the user an animation will be played to keep the user engaged
+
+
 
 ### UI/UX:
 The general theme for our UI/UX is a mix between a clasical and modern style.
