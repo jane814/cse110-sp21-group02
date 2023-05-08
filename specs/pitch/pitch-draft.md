@@ -89,7 +89,7 @@ Tarot Reader:
 ![Tarot Reader](https://github.com/cse110-sp21-group02/cse110-sp21-group02/blob/0414f4cbf28c10d0161c11d300e89a3ebb334bcf/specs/pitch/Tarot%20Reader.png)
 
 ## Rabbit Holes
-1. Data: depending on the app design and features we would need to store and write a large amount of custom fortunes. Workaround: Use an AI generative system, implement as an additional feature if time allows.
+1. Data: in order to do truly personalized readings we would need to store and write a large amount of custom fortunes. Workaround: Use an AI generative system, implement as an additional feature if time allows.
 2. Design: designing from CSS is difficult to visualize and will delay the team's view of the project. Before any front end coding we will create a Figma and aim to exactly replicate the design on there.
 3. Complexity/clutter: lots of fortune telling apps are filled with tons of features that take a lot of time to implement and would distract from the rest of the design. We will focus on using a single standard tarot card deck.
 4. Avoid adding too many features at once to the app. Start off with coding the necessary features then add the other additional features once the necessary features are working properly. Follow the workflow timeline specified in the Appitite portion.
@@ -98,4 +98,18 @@ Tarot Reader:
 1. No external databases.
 2. Tarot card reading diversity, there are many different readings that can be performed and we don’t have time for all of them. To avoid getting lost we will focus first on a simple 3 card reading.
 3. Changing to a non-standard Tarot card deck.
+
+## Research
+- [Types of Readings](https://midtownmanhattanpsychic.com/types-tarot-readings/) 
+  - We will be focusing on the "Three Card Spread".
+- [Tarot Reading Basics](https://www.mindbodygreen.com/articles/how-to-do-a-basic-tarot-reading)
+  - Includes types of cards and their basic meanings.
+- [Rider Waite Tarot Deck](https://www.tarot.com/tarot/decks/rider)
+  - This is the deck we will be using (maybe with a different art)
+- [Tarot.com](https://www.tarot.com/readings-reports/tarot-readings/celtic-cross)
+  - Readings and tarot resources.
+- [Evatarot](https://www.evatarot.net/)
+  - Tarot Reading Website
+- [Tarot Moon](https://tarotmoon.com/)
+  - Tarot Reading Website
 
