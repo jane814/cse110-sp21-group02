@@ -20,3 +20,17 @@
 # Next steps:
 * Divide Tasks into frontend and backend 
 * Get basic functionality done
+
+#Frontend
+* Get images for all tarot cards (Zichen)
+* Icons and other assets (Leon)
+* Html structure (Daniel)
+* Css (Fuyao)
+
+#Backend
+* Local storage (Jane)
+* Selecting cards, textbox (Zheng)
+* Outline backend functions (Preston)
+* User Input (Ian, Aaron)
+
+
