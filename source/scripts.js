@@ -4,7 +4,7 @@ const OUTPUT_TEXT_BOX_ID = "output-text";
 
 
 /**
- * 
+ * Retrieves user's question from the text box
  * @returns {string} The user input text
  */
 const getUserInputText = () => {
@@ -13,7 +13,6 @@ const getUserInputText = () => {
 }
 
 /**
- * 
  * @returns {Array} The array of readings from localStorage
  */
 const getReadings = () => {
@@ -88,8 +87,10 @@ const generateReadingLink = (reading) => {
 }
 /**
  * Activated by the retry button, regenerates the cards and meaning
+ * @returns {Object} The reading object
  */
 const regenerateReading = () => {
+  return {};
 }
 /**
  * Wwitches the front end to display the reading
@@ -99,7 +100,7 @@ const displayReading = (reading) => {
 }
 
 const getVoiceInput = () => {
-    
+
 }
 
 /**
