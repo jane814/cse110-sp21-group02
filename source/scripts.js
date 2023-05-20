@@ -2,6 +2,8 @@ const USER_INPUT_TEXT_BOX_ID = "user-input";
 const GENERATE_BUTTON_ID = "generate-button";
 const OUTPUT_TEXT_BOX_ID = "output-text";
 
+let currentReading = {}; // The current reading object, updated by displayReading
+
 
 /**
  * Retrieves user's question from the text box
@@ -44,7 +46,6 @@ const renameReading = (name, id) => {
 }
 
 /**
- * 
  * @param {string} id The id of the reading to get
  * @returns {Object} The reading object
  */
@@ -53,7 +54,6 @@ const getReading = (id) => {
 }
 
 /**
- * 
  * @param {string} id The id of the reading to delete
  * @returns {boolean} True if successful, false otherwise
  */
@@ -87,9 +87,11 @@ const generateReadingLink = (reading) => {
 }
 /**
  * Activated by the retry button, regenerates the cards and meaning
+ * 
+ * @param {Object} reading The reading to regenerate
  * @returns {Object} The reading object
  */
-const regenerateReading = () => {
+const regenerateReading = (reading) => {
   return {};
 }
 /**
