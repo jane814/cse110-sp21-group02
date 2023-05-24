@@ -9,22 +9,27 @@
 - [x] Preston
 - [x] Zheng 
 
-## Accomplished:
-* Created mock UI/UX
-* Draft pitch we created ~ https://www.figma.com/file/9SY1gNTJO4cRGIjzWgYhHE/Untitled?type=design&node-id=0-1&t=SaMP0jeDAmExSQRC-0
----
-# Next steps:
-* Divide Tasks into frontend and backend 
-* Get basic functionality done
+## Updates:
+# Jane
+* Worked on code in a separate repo, currently testing code
+* Will add and work on two more issues before Friday
+* Once everything is tested will add it to the repo dev branch before Friday meeting
 
-#Frontend
-* Get images for all tarot cards (Zichen)
-* Icons and other assets (Leon)
-* Html structure (Daniel)
-* Css (Fuyao)
+# Preston
+* Answers for each card based on past present future has been created
+* Different positivity ratings for cards have been determined
+* Maximum rating will be 15, minimum rating will be -15
 
-#Backend
-* Local storage (Jane)
-* Selecting cards, textbox (Zheng)
-* Outline backend functions (Preston)
-* User Input (Ian, Aaron)
+# Aaron
+* Currently we have 10 selectable questions for the user to implement
+* For each question there are 5 different responses that vary in positivity
+
+# Zheng
+* Work on deleting a reading from the local storage
+* Work on updating a reading from the local storage
+
+## Next steps:
+* Continue working on back end issues and functions (Jane)
+* Work alongside Jane to get all the backend local storage functions done (Zheng)
+* Work on function to match response to questions and rating (Aaron)
+* Adding card data into the code in the form of an object (Preston)
