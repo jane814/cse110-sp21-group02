@@ -17,6 +17,22 @@ const cards = [
   "TheMoon",    "Judgement",    "TheWorld"
 ];
 
+// sources: https://www.cosmopolitan.com/lifestyle/a33470289/tarot-card-questions/
+//          https://www.mindbodygreen.com/articles/tarot-questions-to-ask
+
+// const predefinedQuestions = [
+//   "How can I create more balance in my friendships?",
+//   "What do I need to focus on at my current workplace?",
+//   "How is my past affecting my present?",
+//   "Which ideas should I pay attention to today?",
+//   "What do I need most in my life right now?",
+//   "What qualities do I need in a partner?",
+//   "How can I better strengthen my current relationship?",
+//   "What should I consider when choosing a career path?",
+//   "What should I appreciate in my life right now?",
+//   "Where is fear holding me back?"
+// ];
+
 //Calling functions when click on button
 document.getElementById("draw-cards").addEventListener("click", () => {
   drawCards();
@@ -35,6 +51,7 @@ const getUserInputText = () => {
   const userInput = document.getElementById("question").value.trim();
   if(questionToValidate === "") {
     // this alert will notify the user of why the cards are not drawn
+    // can call method that will display message on screen
     alert("Please enter a question before submitting.");
     return;
   }
@@ -204,11 +221,11 @@ function drawCards() {
 
   const randomIndexes = [];
   while (randomIndexes.length < CardsDraw) {
-      const randomIndex = Math.floor(Math.random() * cards.length);
-      if (!randomIndexes.includes(randomIndex)) {
-          randomIndexes.push(randomIndex);
-      }
+    const randomIndex = Math.floor(Math.random() * cards.length);
+    if (!randomIndexes.includes(randomIndex)) {
+        randomIndexes.push(randomIndex);
     }
+  }
 
   // Get the card at the random index
   const card = [];

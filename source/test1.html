@@ -32,14 +32,38 @@
         <img src="pics/Arcana/Judgement.jpeg" alt="Judgement">
         <img src="pics/Arcana/TheWorld.jpeg" alt="TheWorld">
       </div>
-      <div class="tarot-minor-arcana">
 
-
-      </div>
+      <div class="tarot-minor-arcana"></div>
     </div>
+
     <div>
       <input type="text" id="question" placeholder="Enter your question...">
+      <select name="questions" id="question-list"></select>
     </div>
+
+    <script>
+      const predefinedQuestions = [
+        "How can I create more balance in my friendships?",
+        "What do I need to focus on at my current workplace?",
+        "How is my past affecting my present?",
+        "Which ideas should I pay attention to today?",
+        "What do I need most in my life right now?",
+        "What qualities do I need in a partner?",
+        "How can I better strengthen my current relationship?",
+        "What should I consider when choosing a career path?",
+        "What should I appreciate in my life right now?",
+        "Where is fear holding me back?"
+      ];
+
+      const selectMenu = document.getElementById("question-list");
+
+      // Iterate over the options array
+      for (var i = 0; i < predefinedQuestions.length; i++) {
+        var question = document.createElement("option");
+        question.text = predefinedQuestions[i];
+        selectMenu.add(question);
+      }
+    </script>
 
     <div class="button-container">
       <button id="draw-cards">Draw Cards</button>
