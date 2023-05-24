@@ -20,18 +20,27 @@ const cards = [
 // sources: https://www.cosmopolitan.com/lifestyle/a33470289/tarot-card-questions/
 //          https://www.mindbodygreen.com/articles/tarot-questions-to-ask
 
-// const predefinedQuestions = [
-//   "How can I create more balance in my friendships?",
-//   "What do I need to focus on at my current workplace?",
-//   "How is my past affecting my present?",
-//   "Which ideas should I pay attention to today?",
-//   "What do I need most in my life right now?",
-//   "What qualities do I need in a partner?",
-//   "How can I better strengthen my current relationship?",
-//   "What should I consider when choosing a career path?",
-//   "What should I appreciate in my life right now?",
-//   "Where is fear holding me back?"
-// ];
+const predefinedQuestions = [
+  "How can I create more balance in my friendships?",
+  "What do I need to focus on at my current workplace?",
+  "How is my past affecting my present?",
+  "Which ideas should I pay attention to today?",
+  "What do I need most in my life right now?",
+  "What qualities do I need in a partner?",
+  "How can I better strengthen my current relationship?",
+  "What should I consider when choosing a career path?",
+  "What should I appreciate in my life right now?",
+  "Where is fear holding me back?"
+];
+
+// Add predefined questions to the questions list
+const selectMenu = document.getElementById("question-list");
+
+for (var i = 0; i < predefinedQuestions.length; i++) {
+  var question = document.createElement("option");
+  question.text = predefinedQuestions[i];
+  selectMenu.add(question);
+}
 
 //Calling functions when click on button
 document.getElementById("draw-cards").addEventListener("click", () => {
@@ -47,18 +56,24 @@ document.getElementById("draw-cards").addEventListener("click", () => {
  */
 
 const getUserInputText = () => {
-  //const userInput = document.getElementById(USER_INPUT_TEXT_BOX_ID);
-  const userInput = document.getElementById("question").value.trim();
-  if(questionToValidate === "") {
-    // this alert will notify the user of why the cards are not drawn
-    // can call method that will display message on screen
-    alert("Please enter a question before submitting.");
-    return;
-  }
-  else{
-    //not done yet, needs more limitations
-    return userInput.value;
-  }
+  
+  // For predefined questions (offline mode)
+  // console.log(document.getElementById("question-list").value);
+  return document.getElementById("question-list").value;
+
+  // Will be used for Chat GPT functionality only
+    // //const userInput = document.getElementById(USER_INPUT_TEXT_BOX_ID);
+    // const userInput = document.getElementById("question").value.trim();
+    // if(questionToValidate === "") {
+    //   // this alert will notify the user of why the cards are not drawn
+    //   // can call method that will display message on screen
+    //   alert("Please enter a question before submitting.");
+    //   return;
+    // }
+    // else {
+    //   //not done yet, needs more limitations
+    //   return userInput.value;
+    // }
 }
 
 /**
@@ -249,7 +264,7 @@ function drawCards() {
   // Display the reading in the output box
   output.textContent = "Thinking..."
   output.style.display = "block";
-
+  
 }
 
 
@@ -260,8 +275,9 @@ document.getElementById("reset").addEventListener("click", () => {
   document.getElementById("draw-cards").disabled = false;
   document.getElementById("cards").innerHTML = "";
   document.getElementById("output-text").innerHTML = "";
-  // Added: when reset is hit, input field for question will be cleared
-  document.getElementById("question").value = "";
+  // Only used for Chat GPT version
+    // // Added: when reset is hit, input field for question will be cleared
+    // document.getElementById("question").value = "";
 });
 
 
