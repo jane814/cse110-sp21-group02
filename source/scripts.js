@@ -8,13 +8,13 @@ let currentReading = {};
 // The current reading object, updated by displayReading
 //major taort cards, will update minor if needed
 const cards = [
-  "TheFool",    "TheMagician",    "TheHighPriestess",
-  "TheEmpress",    "TheEmperor",    "TheHierophant",
-  "TheLovers",    "TheChariot",    "Strength",
-  "TheHermit",    "Wheel_of_Fortune",    "Justice",    
-  "The_Hanged_Man",    "Death",    "Temperance",
-  "TheDevil",    "TheTower",    "TheStar",    "TheSun",
-  "TheMoon",    "Judgement",    "TheWorld"
+  "The Fool",    "The Magician",    "The High Priestess",
+  "The Empress",    "The Emperor",    "The Hierophant",
+  "The Lovers",    "The Chariot",    "Strength",
+  "The Hermit",    "Wheel of Fortune",    "Justice",    
+  "The Hanged Man",    "Death",    "Temperance",
+  "The Devil",    "The Tower",    "The Star",    "The Sun",
+  "The Moon",    "Judgement",    "The World"
 ];
 
 // sources: https://www.cosmopolitan.com/lifestyle/a33470289/tarot-card-questions/
@@ -56,7 +56,6 @@ document.getElementById("draw-cards").addEventListener("click", () => {
  */
 
 const getUserInputText = () => {
-  
   // For predefined questions (offline mode)
   // console.log(document.getElementById("question-list").value);
   return document.getElementById("question-list").value;
@@ -190,7 +189,7 @@ const regenerateReading = (reading) => {
   return {};
 }
 /**
- * Wwitches the front end to display the reading
+ * Switches the front end to display the reading
  */
 const displayReading = (reading) => {
 //not done yet
@@ -232,10 +231,10 @@ const dictateReading = () => {
 function drawCards() {
   // Get a random number between 0 and the number of cards
   // random select 3 cards no duplicate
-  const CardsDraw = 3;
+  const cardsToDraw = 3;
 
   const randomIndexes = [];
-  while (randomIndexes.length < CardsDraw) {
+  while (randomIndexes.length < cardsToDraw) {
     const randomIndex = Math.floor(Math.random() * cards.length);
     if (!randomIndexes.includes(randomIndex)) {
         randomIndexes.push(randomIndex);
