@@ -24,4 +24,13 @@ function generate() {
 
     let meaning = document.getElementById("meaning");
     meaning.classList.toggle("show");
+
+    let saveButton = document.getElementById("save");
+    saveButton.classList.toggle("show");
+
+    let retryButton = document.getElementById("retry");
+    retryButton.classList.toggle("show");
+
+    let dropdownButton = document.querySelector(".dropbtn");
+    dropdownButton.style.display = "none";
 }
