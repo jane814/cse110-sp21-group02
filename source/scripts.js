@@ -1,12 +1,17 @@
 const USER_INPUT_TEXT_BOX_ID = 'user-input';
 const GENERATE_BUTTON_ID = 'generate-button';
 const OUTPUT_TEXT_BOX_ID = 'output-text';
+const QUESTION_LIST_ID = 'question-list';
+const DRAW_CARDS_BUTTON_ID = 'draw-cards';
 
 const output = document.getElementById('output-text');
 
-let currentReading = {}; 
+
 // The current reading object, updated by displayReading
-//major taort cards, will update minor if needed
+let currentReading = {}; 
+
+
+// The drawable tarot cards (only the Major Arcana for now)
 const cards = [
   'The Fool',    'The Magician',    'The High Priestess',
   'The Empress',    'The Emperor',    'The Hierophant',
@@ -17,6 +22,7 @@ const cards = [
   'The Moon',    'Judgement',    'The World'
 ];
 
+// The meanings and weights of each tarot card (only the Major Arcana for now)
 const cardResponseData = {
   'The Fool': {
     pastReading: 'The Fool card in the past position suggests that you have experienced a phase of new beginnings, spontaneity, and stepping into the unknown. You may have embarked on a journey or taken risks with a sense of innocence and curiosity. This card indicates that your past was marked by a willingness to embrace new experiences, even if they carried an element of uncertainty. These experiences have shaped your current outlook and have set the stage for your present circumstances.',
@@ -179,9 +185,9 @@ const cardResponseData = {
   },
 }
 
+// Predefined questions to ask the tarot reader
 // sources: https://www.cosmopolitan.com/lifestyle/a33470289/tarot-card-questions/
 //          https://www.mindbodygreen.com/articles/tarot-questions-to-ask
-
 const predefinedQuestions = [
   'How can I create more balance in my friendships?',
   'What do I need to focus on at my current workplace?',
@@ -195,22 +201,25 @@ const predefinedQuestions = [
   'Where is fear holding me back?'
 ];
 
-// Add predefined questions to the questions list
-const selectMenu = document.getElementById('question-list');
+/**
+ * Sets up the page, adding event listeners and filling the questions list.
+ * Called immediately on load of this file.
+ */
+const init = () => {
+  // Add predefined questions to the questions list
+  const selectMenu = document.getElementById('question-list');
 
-for (var i = 0; i < predefinedQuestions.length; i++) {
-  var question = document.createElement('option');
-  question.text = predefinedQuestions[i];
-  selectMenu.add(question);
+  for (var i = 0; i < predefinedQuestions.length; i++) {
+    var question = document.createElement('option');
+    question.text = predefinedQuestions[i];
+    selectMenu.add(question);
+  }
+  //Calling functions when click on button
+  document.getElementById('draw-cards').addEventListener('click', () => {
+    drawCards();
+  });
 }
-
-//Calling functions when click on button
-document.getElementById('draw-cards').addEventListener('click', () => {
-  drawCards();
-
-
-});
-
+init();
 
 /**
  * Retrieves user's question from the text box
@@ -220,7 +229,7 @@ document.getElementById('draw-cards').addEventListener('click', () => {
 const getUserInputText = () => {
   // For predefined questions (offline mode)
   // console.log(document.getElementById('question-list').value);
-  return document.getElementById('question-list').value;
+  return document.getElementById(QUESTION_LIST_ID).value;
 
   // Will be used for Chat GPT functionality only
     // //const userInput = document.getElementById(USER_INPUT_TEXT_BOX_ID);
@@ -245,7 +254,6 @@ const getReadings = () => {
 }
 
 /**
- * 
  * @param {Array} readings The array of readings to save to localStorage
  */
 const saveReadings = (readings) => {
@@ -253,7 +261,6 @@ const saveReadings = (readings) => {
 }
 
 /**
- * 
  * @param {Object} reading The reading to save to localStorage
  */
 const saveReading = (reading) => {
@@ -286,13 +293,11 @@ const deleteReading = (id) => {
 }
 
 /**
- * 
  * @returns {boolean} True if any readings deleted, false otherwise
  */
 const deleteAllReadings = () => {
   
 }
-
 
 /**
  * Creates a reading object from the user input text
@@ -339,8 +344,8 @@ const generateReading = () => {
  * @param {Object} reading The reading to generate a link for
  */
 const generateReadingLink = (reading) => {
-
 }
+
 /**
  * Activated by the retry button, regenerates the cards and meaning
  * 
@@ -363,7 +368,7 @@ const displayReading = (reading) => {
   //   }
   //   document.getElementById('cards').style.display = 'flex';
   //   document.getElementById('draw-cards').disabled = true;
-  //   output.textContent = 'Thinking...'
+  //   output.textContent = 'Thinking...';
   //   setTimeout(generateAnswer(card,questionToValidate), 1000);
   //   output.style.display = 'block';
 
