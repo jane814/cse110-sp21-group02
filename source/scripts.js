@@ -201,6 +201,79 @@ const predefinedQuestions = [
   'Where is fear holding me back?'
 ];
 
+const predefinedQuestionResponses = {
+  'How can I create more balance in my friendships?': {
+    cautious: "Tread with caution as you navigate the delicate dance of connection. Look within, reflect upon your actions, and communicate openly with your companions. Take heed of boundaries, for they shall guard the equilibrium. Yet remember, each friendship is a unique tapestry, woven with intricate threads. Exercise prudence and remember that harmony blooms through understanding, empathy, and the nurturing of yourself and others.",
+    uncertain: "Balance in friendships is veiled in uncertainty, like whispers carried by the wind. Seek not for a definitive answer, for the dynamics of friendships are as enigmatic as the shifting sands. Embrace the journey of self-discovery, and in your quest, tread softly. Nurture your connections with care, be open to growth, and let time unfurl its secrets. The key to balance lies within the ebb and flow, where mysteries intertwine, and destiny weaves its intricate tapestry.",
+    neutral: "As you navigate the tapestry of connection, let your intuition be your guide. Embrace harmony by nurturing bonds with an open heart and mindful presence. Seek understanding, for true balance blossoms from mutual respect and genuine communication. Trust the rhythm of time and the symphony of shared experiences, for in this dance, the equilibrium of friendships may find its delicate equilibrium.",
+    positive: "The path ahead brims with endless possibilities for harmonious friendships. Embrace candid conversations, for communication shall illuminate your way as a guiding beacon. Embrace empathy and comprehension, allowing benevolence to form the bedrock of your cherished bonds. Through heartfelt gestures and shared moments, you shall weave a tapestry of unity, crafting a melodic symphony of treasured companionship. Embrace this noble pursuit, for within the quest for balance, lies the exquisite beauty of enduring friendships.",
+    very_positive: "Radiant soul, the realm of balanced friendships beckons you with shimmering possibilities. With your spirit aflame, let the light of your intentions guide you toward harmony's embrace. Embrace the power within, for you possess the ability to cultivate equilibrium in every connection you cherish. Engage in heartfelt conversations that dance with authenticity, kindling bonds that shall weather the tests of time. Radiate compassion and understanding, nurturing each friendship like a delicate blossom in the garden of your heart. As you traverse this wondrous journey, your friendships will blossom into symphonies of serenity, joy, and lifelong camaraderie."
+  },
+  'What do I need to focus on at my current workplace?': {
+    cautious: "Approach the realm of your work life with attentiveness. As you traverse its intricate landscape, be mindful of the hidden currents and subtle nuances that shape your experience. Keep a discerning eye on the dynamics at play, for they hold the potential for both challenges and opportunities. Focus your energies on the tasks at hand, but remain ever-aware of the ever-changing landscape. With wisdom and careful navigation, you shall navigate the path to success in your professional journey.",
+    uncertain: "In your current workplace, dear seeker, the path ahead appears veiled in uncertainty. Embrace the unknown with an open mind and a willingness to adapt. As you navigate this ever-shifting landscape, focus on cultivating a sense of flexibility and resilience. Stay attuned to the subtle cues and changes around you, for they may hold valuable insights. While the specific areas of focus may elude you at this time, by embracing uncertainty, you open yourself up to unexpected opportunities and possibilities that may lead to growth and success in your work.",
+    neutral: "It is wise to cultivate a balanced approach at work, where both your core responsibilities and professional growth receive due consideration. Respect the dynamics within your team and the broader organization, as collaboration and effective communication are often key. Additionally, keeping an eye on emerging trends and industry developments can help you remain adaptable and proactive in your role. By maintaining a neutral focus and embracing a well-rounded perspective, you create the potential for both personal and professional advancement in your current workplace.",
+    positive: "In your current workplace, dear seeker, a world of possibilities awaits your dedicated gaze. Embrace the power of collaboration, fostering meaningful connections with your colleagues. Cultivate a hunger for growth, seizing every opportunity to expand your skill set and explore new horizons. Stay curious about the ever-evolving landscape of your industry, and let your enthusiasm fuel creative innovation. By channeling your energy into these endeavors, you will illuminate the path to success and fulfillment in your current workplace.",
+    very_positive: "The potential that awaits you at your current workplace is vibrant. There are focal points of brilliance awaiting your dedicated attention. Cultivate a spirit of collaboration, intertwining your strengths with those of your colleagues to create a symphony of success. Direct your focus toward professional growth, exploring uncharted territories, and most importantly, expanding your horizons. With an unwavering commitment to excellence, you shall paint a masterpiece of achievements in your current workplace, leaving an indelible mark of distinction."
+  },
+  'How is my past affecting my present?': {
+    cautious: "The whispers of your past cast their shadows upon your present being. Be cautious, for the echoes of those experiences may influence your thoughts, actions, and choices. Take time to reflect upon how your past has shaped your current path, for therein lies valuable wisdom. Yet, do not get caught up in the tendrils of nostalgia or regrets. Instead, embrace the present moment, for it holds the power to shape your future. With mindful awareness and a willingness to embrace new possibilities, you shall understand the connection between your past and present, forging a path towards personal growth and fulfillment.",
+    uncertain: "The connection between your past and present creates an air of uncertainty. The influence of your past may subtly shape the path you tread today, yet the intricacies lay in the interconnected nature of complete comprehension. Embrace the enigma with an open mind, for it is through self-reflection and exploration that you may gain windows of insight. The impact of your past upon your present remains a puzzle, which you must put in the time to solve. Trust in your own journey, and may the unfolding future bring clarity and wisdom to illuminate the currently unknown link between your past and present.",
+    neutral: "Your past experiences have had a fair impact on shaping your present. They’ve influenced your recent thoughts, beliefs, and behaviors, which in turn has affected your interactions with the world. Positive experiences may provide a strong foundation for confidence and resilience, while negative experiences can create emotional scars and limiting beliefs that hinder personal growth. Understanding the ways in which your past influences your present allows you to reflect on patterns, make conscious choices, and seek healing or personal development where necessary. Ultimately, acknowledging and learning from your past can empower you to create a more fulfilling present and future.",
+    positive: "Your experiences are instrumental in shaping your present in great ways. They have equipped you with valuable lessons, resilience, and strength that you can draw upon in your current endeavors. The challenges you have overcome in the past have built your character and prepared you to face new obstacles with confidence and determination. Your past successes and achievements serve as a reminder of your capabilities and provide a solid foundation for future accomplishments. Embracing the lessons and growth from your past empowers you to make informed decisions, pursue meaningful goals, and create a brighter and more fulfilling present.",
+    very_positive: "Your past has beautifully paved the way for an incredibly notable present. The meaningful connections you have built and the experiences you have cherished have cultivated a generous collage of fulfillment and happiness in your life. Each success and accomplishment from your past serves as a springboard for even greater achievements and joy in the present. Your past has blessed you with a treasure trove of valuable lessons, resilience, and deep-rooted connections, fueling your current journey towards an even more remarkable and fulfilling future. Embrace the abundant blessings of your past, for they are the foundation of an extraordinary present and an awe-inspiring future."
+  },
+  'Which ideas should I pay attention to today?': {
+    cautious: "In navigating the vast array of ideas presented to you today, it is important to approach them with caution and discernment. Focus on ideas that align with your values, goals, and personal growth. Give attention to concepts supported by reliable evidence and thoughtful reasoning. Be cautious of ideas that lack credibility or show signs of being manipulative or exploitative. Prioritize ideas that promote empathy, inclusivity, and positive impact, while being mindful of potential biases or hidden agendas. Ultimately, exercising critical thinking and careful consideration will help you select ideas that are most beneficial and conducive to your overall well-being.",
+    uncertain: "When faced with a multitude of ideas today, it's natural to feel uncertain about which ones to prioritize. Uncertainty can be a sign of open-mindedness and the recognition that not all ideas are equally valid or relevant to your current needs. Embrace this uncertainty as an opportunity for exploration and growth. Consider evaluating ideas based on their potential alignment with your values, personal aspirations, and the insights they offer. Seek a balance between being open to new perspectives and exercising critical thinking to identify ideas that resonate with you on a deeper level. Remember, it's okay to embrace the uncertainty and allow yourself the freedom to discover which ideas truly resonate with you.",
+    neutral: "When deciding which ideas to pay attention to today, it is helpful to consider your personal preferences, goals, and priorities. Assess the relevance and potential impact of each idea in relation to your current circumstances. Take into account the sources of the ideas, their credibility, and the evidence or reasoning provided in aligning with each of them. Be open-minded and receptive to a diverse range of ideas while exercising discernment and critical thinking. Ultimately, the ideas that deserve your attention are those that resonate with you and have the potential to contribute positively to your personal or professional journey.",
+    positive: "Today offers you an abundance of exciting possibilities to explore and expand your horizons. Embrace this opportunity to delve into ideas that inspire you and align with your passions and aspirations. Pay attention to ideas that ignite your curiosity and have the potential to bring fulfillment and growth into your life. Seek out concepts that resonate deeply with your values, as they can guide you toward making meaningful choices. Give attention to ideas that foster creativity, personal development, and positive impact, allowing you to create a brighter future filled with purpose and joy. Trust in your intuition and follow the path that leads you to the ideas that truly resonate with your authentic self.",
+    very_positive: "Today presents you with an extraordinary array of brilliant ideas, each holding immense potential to enrich your life in remarkable ways. Embrace this moment of limitless possibilities and follow the path that excites your imagination and fuels your passions. Pay attention to ideas that ignite a fire within you, resonating deeply with your purpose and dreams. Seek out concepts that challenge you to grow, expand your horizons, and unleash your full potential. Trust in your unique instincts and intuition as you navigate through the sea of ideas, for they will guide you towards the extraordinary opportunities that await. Embrace this wondrous journey of exploration, and let the transformative power of ideas lead you to a future that surpasses your wildest dreams."
+  },
+  'What do I need most in my life right now?': {
+    cautious: "Determining what one needs most in life is a deeply personal and subjective matter. It is important to approach this question with caution, as it depends on your individual circumstances, goals, and values. Taking time for self-reflection and understanding your priorities can provide valuable insights. Consider seeking guidance from trusted individuals who know you well or engaging in practices such as meditation or journaling to gain clarity. Remember that life's needs evolve over time, so regularly reassessing your goals and aspirations can help ensure a balanced and fulfilling journey.",
+    uncertain: "Discovering what you need most in your life right now is a complex and uncertain endeavor. It depends on various factors, including your current circumstances, aspirations, and personal growth. Each person's journey is unique, and what may be essential for someone else may not necessarily apply to you. It is crucial to engage in introspection, explore your passions, and seek experiences that align with your values. Embrace the uncertainty and allow yourself the freedom to explore different paths, as it is through exploration that we often discover what we truly need and desire. Remember to be open to change and adapt as your journey unfolds.",
+    neutral: "In the vastness of life, discerning what you need most in the present moment is a profound and multifaceted inquiry. I perceive that your journey is unique, and only you possess the intimate knowledge of your desires, aspirations, and circumstances. Engaging in deep self-reflection, introspection, and contemplation may guide you toward the understanding of your current needs. Consider exploring various aspects of your life, such as relationships, personal growth, well-being, and purpose, as they often hold valuable insights. Remember that needs are fluid and dynamic, thus remaining open to new experiences and opportunities can enrich your path towards a more fulfilling existence. Trust in your inner wisdom, embrace the exploration of possibilities, and allow the tapestry of life to unfold with its mysteries and revelations.",
+    positive: "From my perspective, I perceive a radiant potential within your life, waiting to unfold. What you need most at this moment is to embrace self-compassion and cultivate a deep sense of self-love. Nurture your inner being with kindness, forgiveness, and acceptance, for it is from this place of self-affirmation that profound growth arises. Connect with your passions and purpose, allowing them to guide your path towards fulfillment and joy. Surround yourself with supportive and uplifting individuals who inspire and encourage your aspirations. Take time for self-care and prioritize your well-being, nurturing your mind, body, and spirit. Trust in the abundance of the universe and have faith in your own resilience, for you possess the innate power to manifest the life you envision.",
+    very_positive: "I sense an immense potential and an abundance of blessings waiting to unfold in your life. What you need most in your life right now is a profound awakening to your limitless potential. Embrace boundless self-belief and unshakeable confidence, for you possess the power to manifest your deepest desires. Trust in your inherent wisdom and capabilities, for you are equipped with everything needed to overcome challenges and manifest your dreams. Surround yourself with positive energies, kindred spirits, and uplifting influences that inspire and support your journey. Cultivate gratitude for the present moment, recognizing the beauty and opportunities that surround you. Believe in the limitless possibilities that lie ahead, and embrace the joy and fulfillment that awaits you on your extraordinary path."
+  },
+  'What qualities do I need in a partner?': {
+    cautious: "*No response yet*",
+    uncertain: "*No response yet*",
+    neutral: "*No response yet*",
+    positive: "*No response yet*",
+    very_positive: "*No response yet*"
+  },
+  'How can I better strengthen my current relationship?': {
+    cautious: "*No response yet*",
+    uncertain: "*No response yet*",
+    neutral: "*No response yet*",
+    positive: "*No response yet*",
+    very_positive: "*No response yet*"
+  },
+  'What should I consider when choosing a career path?': {
+    cautious: "*No response yet*",
+    uncertain: "*No response yet*",
+    neutral: "*No response yet*",
+    positive: "*No response yet*",
+    very_positive: "*No response yet*"
+  },
+  'What should I appreciate in my life right now?': {
+    cautious: "*No response yet*",
+    uncertain: "*No response yet*",
+    neutral: "*No response yet*",
+    positive: "*No response yet*",
+    very_positive: "*No response yet*"
+  },
+  'Where is fear holding me back?': {
+    cautious: "*No response yet*",
+    uncertain: "*No response yet*",
+    neutral: "*No response yet*",
+    positive: "*No response yet*",
+    very_positive: "*No response yet*"
+  }
+}
+
 /**
  * Sets up the page, adding event listeners and filling the questions list.
  * Called immediately on load of this file.
@@ -224,12 +297,18 @@ init();
 /**
  * Retrieves user's question from the text box
  * @returns {string} The user input text
+ * @returns -1 if the user input isn't valid (no selection made)
  */
 
 const getUserInputText = () => {
   // For predefined questions (offline mode)
   // console.log(document.getElementById('question-list').value);
-  return document.getElementById(QUESTION_LIST_ID).value;
+  const input = document.getElementById(QUESTION_LIST_ID).value;
+  // check to see if the current input is the disabled one
+  if(input === "") {
+    return -1;
+  }
+  return input;
 
   // Will be used for Chat GPT functionality only
     // //const userInput = document.getElementById(USER_INPUT_TEXT_BOX_ID);
@@ -304,6 +383,13 @@ const deleteAllReadings = () => {
  * @returns {Object} The reading object
  */
 const generateReading = () => {
+
+  const inputText = getUserInputText();
+  if(inputText === -1) {
+    // could alert user of invalid input here
+    return;
+  }
+
   // call chatgpt api to generate answer
   //ChatGPT API key
   // const KEY_PT1 = 'sk-0f6RSME2lZfPKgp9sx'
@@ -430,7 +516,6 @@ function drawCards() {
   // Display the reading in the output box
   output.textContent = 'Thinking...'
   output.style.display = 'block';
-  
 }
 
 
