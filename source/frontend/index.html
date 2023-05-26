@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <title>Tarot Card Reader</title>
+</head>
+
+<body>
+    <!-- Title -->
+    <h1>Tarot Card Reader</h1>
+    <!-- Navbar -->
+    <div class="topnav">
+        <a href="#">Home</a>
+        <a href="#">History</a>
+    </div>
+    <!-- Main Display -->
+    <div id="display">
+        <img src="./images/image 4.svg" id="display-img" alt="">
+    </div>
+    <!--
+        <!-- Speaker Button 
+        <button><img src="" alt=""></button>
+        <!-- Microphone Button 
+        <button><img src="" alt=""></button>
+
+    -->
+    <!-- Meaning Box -->
+    <section>
+        <p class="toShow" id="meaning">Meaning</p>
+    </section>
+    <!-- Dropdown Input Box -->
+    <div class="dropdown">
+        <button onclick="dropDown()" class="dropbtn">Dropdown Input</button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="#">Question 1</a>
+            <a href="#">Question 2</a>
+            <a href="#">Question 3</a>
+            <a href="#">Question 4</a>
+            <a href="#">Question 5</a>
+            <a href="#">Question 6</a>
+            <a href="#">Question 7</a>
+            <a href="#">Question 8</a>
+            <a href="#">Question 9</a>
+            <a href="#">Question 10</a>
+        </div>
+    </div>
+    <div class="container">
+        <button id="save" class="toShow">Save</button>
+        <button id="retry" class="toShow">Retry</button>
+    </div>
+    <!-- Generate Button -->
+    <button id="generate-btn" onclick="generate()">Generate</button>
+    ​
+    <!-- History -->
+    <section>
+        <div class="container-col">
+            <h2>History</h2>
+            <div class="container">
+                <img src="./images/image6.png" alt="">
+                <h3>Date</h3>
+                <img src="./images/Rectangle14.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section>
+        <button>Delete All</button>
+    </section>
+    ​
+</body>
+
+</html>
