@@ -293,7 +293,7 @@ function init() {
 }
 
 /**
- * Displays the history of readings
+ * TODO: Displays the history of readings
  */
 function renderHistory(){
   let readings = getReadings();
@@ -472,7 +472,11 @@ function drawCards() {
   return drawnCards;
 }
 
-//Generates results onClick
+/**
+ * Handler for the generate button on click.
+ * Changes the display image and meaning text.
+ * Updates the currentReading variable.
+ */
 function generateHandler() {
   let imageLeft = document.getElementById("display-img-left");
   let imageMid = document.getElementById("display-img-mid");
@@ -522,6 +526,7 @@ function retryHandler() {
  */
 function generateReadingLink(reading) {
   // TODO: implement (v2)
+  console.log(reading)
   return "";
 }
 
