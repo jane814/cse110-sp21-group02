@@ -18,8 +18,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js"></script>
     <title>Tarot Card Reader</title>
+    <!--Main Script File-->
+    <script src="scripts.js"></script>
 </head>
 
 <body>
@@ -32,43 +33,26 @@
     </div>
     <!-- Main Display -->
     <div id="display">
-        <img src="./images/tarot-card-box.svg" id="display-img" alt="">
+        <img src="./images/tarot-card-box.svg" id="display-img-left" alt="" style="width: 200px; height: 250px;">
+        <img src="./images/tarot-card-box.svg" id="display-img-mid" alt="" style="width: 200px; height: 250px;">
+        <img src="./images/tarot-card-box.svg" id="display-img-right" alt="" style="width: 200px; height: 250px;">
     </div>
-    <!--
-        <!-- Speaker Button 
-        <button><img src="" alt=""></button>
-        <!-- Microphone Button 
-        <button><img src="" alt=""></button>
-
-    -->
     <!-- Meaning Box -->
     <section>
         <p class="toShow" id="meaning">Meaning</p>
     </section>
-    <!-- Dropdown Input Box -->
-    <div class="dropdown">
-        <button onclick="dropDown()" class="dropbtn">Dropdown Input</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">Question 1</a>
-            <a href="#">Question 2</a>
-            <a href="#">Question 3</a>
-            <a href="#">Question 4</a>
-            <a href="#">Question 5</a>
-            <a href="#">Question 6</a>
-            <a href="#">Question 7</a>
-            <a href="#">Question 8</a>
-            <a href="#">Question 9</a>
-            <a href="#">Question 10</a>
-        </div>
-    </div>
-
 
     <div class="container">
         <button id="save" class="toShow">Save</button>
         <button id="retry" class="toShow">Retry</button>
     </div>
+    
+    <!-- Dropdown Input Box (populated by backend) -->
+    <select id = "question-list">
+    </select>
+
     <!-- Generate Button -->
-    <button id="generate-btn" onclick="generate()">Generate</button>
+    <button id="generate-btn">Generate</button>
 
     
     <!-- History -->
@@ -76,16 +60,15 @@
         <div class="container-col">
             <h2>History</h2>
             <div class="container">
-                <img src="./images/example-tarot-card.png" alt="">
+                <!-- <img src="./images/example-tarot-card.png" alt=""> -->
                 <h3>Date</h3>
                 <img src="./images/Rectangle14.png" alt="">
             </div>
         </div>
     </section>
-    <section>
-        <button>Delete All</button>
-    </section>
     ​
+
+    
 </body>
 
 </html>
