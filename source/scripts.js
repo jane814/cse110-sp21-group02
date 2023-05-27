@@ -1,14 +1,36 @@
 const USER_INPUT_TEXT_BOX_ID = 'user-input';
 const GENERATE_BUTTON_ID = 'generate-button';
 const OUTPUT_TEXT_BOX_ID = 'output-text';
-const QUESTION_LIST_ID = 'question-list';
+//const QUESTION_LIST_ID = 'question-list';
 const DRAW_CARDS_BUTTON_ID = 'draw-cards';
 
-const output = document.getElementById('output-text');
+const QUESTION_LIST = document.getElementById('myDropdown');
+
+//const output = document.getElementById('meaning');
 
 // When the user clicks on the button, toggle between hiding and showing the dropdown content 
 function dropDown() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  //document.getElementById("myDropdown").classList.toggle("show");
+  const dropdownContent = document.getElementById('myDropdown');
+  dropdownContent.classList.toggle("show");
+
+  // Clear the existing content
+  dropdownContent.innerHTML = '';
+
+  // Generate the question links
+  for (let i = 0; i < predefinedQuestions.length; i++) {
+    const question = predefinedQuestions[i];
+
+    // Create a new <a> element
+    const questionLink = document.createElement('a');
+    questionLink.href = '#';
+    questionLink.textContent = question;
+
+    // Append the question link to the dropdown content
+    dropdownContent.appendChild(questionLink);
+
+  }
+
 }
 
 // Close the dropdown if the user clicks outside of it
@@ -25,23 +47,8 @@ window.onclick = function (event) {
   }
 }
 
-//Generates results onClick
-function generate() {
-  let image = document.getElementById("display-img");
-  image.src = "./images/image1.svg";
 
-  let meaning = document.getElementById("meaning");
-  meaning.classList.toggle("show");
 
-  let saveButton = document.getElementById("save");
-  saveButton.classList.toggle("show");
-
-  let retryButton = document.getElementById("retry");
-  retryButton.classList.toggle("show");
-
-  let dropdownButton = document.querySelector(".dropbtn");
-  dropdownButton.style.display = "none";
-}
 // The current reading object, updated by displayReading
 let currentReading = {}; 
 
@@ -414,40 +421,41 @@ const deleteAllReadings = () => {
  */
 
 const generateReading = () => {
-  const drawnCards = drawCards();
+  // const drawnCards = drawCards();
 
-  let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
-  fortune += cardResponseData[drawnCards[0]].pastReading;
-  fortune += cardResponseData[drawnCards[1]].presentReading;
-  fortune += cardResponseData[drawnCards[2]].futureReading;
-  const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
+  // let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
+  // fortune += cardResponseData[drawnCards[0]].pastReading;
+  // fortune += cardResponseData[drawnCards[1]].presentReading;
+  // fortune += cardResponseData[drawnCards[2]].futureReading;
+  // const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
 
-  const inputText = getUserInputText();
-  if(inputText === -1) {
-    // could alert user of invalid input here
-    return;
-  }
+  // const inputText = getUserInputText();
+  // if(inputText === -1) {
+  //   // could alert user of invalid input here
+  //   return;
+  // }
 
-  if(totalWeight >= -15 && totalWeight < -9) {
-    fortune += predefinedQuestionResponses[inputText].cautious;
-  } else if(totalWeight >= -9 && totalWeight < -3) {
-    fortune += predefinedQuestionResponses[inputText].uncertain;
-  } else if(totalWeight >= -3 && totalWeight < 3) {
-    fortune += predefinedQuestionResponses[inputText].neutral;
-  } else if(totalWeight >= 3 && totalWeight < 9) {
-    fortune += predefinedQuestionResponses[inputText].positive;
-  } else {
-    fortune += predefinedQuestionResponses[inputText].very_positive;
-  }
+  // if(totalWeight >= -15 && totalWeight < -9) {
+  //   fortune += predefinedQuestionResponses[inputText].cautious;
+  // } else if(totalWeight >= -9 && totalWeight < -3) {
+  //   fortune += predefinedQuestionResponses[inputText].uncertain;
+  // } else if(totalWeight >= -3 && totalWeight < 3) {
+  //   fortune += predefinedQuestionResponses[inputText].neutral;
+  // } else if(totalWeight >= 3 && totalWeight < 9) {
+  //   fortune += predefinedQuestionResponses[inputText].positive;
+  // } else {
+  //   fortune += predefinedQuestionResponses[inputText].very_positive;
+  // }
 
-  let tarotReading = {
-    id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
-    name: "Default",      // Name of the reading
-    time: Date.now(),     // Time of reading (Unix Timestamp (ms))
-    cards: drawnCards,    // Names of the cards drawn
-    fortune: fortune,     // The fortune text
-    userInput: inputText, // The user input question
-  }
+  // let tarotReading = {
+  //   id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
+  //   name: "Default",      // Name of the reading
+  //   time: Date.now(),     // Time of reading (Unix Timestamp (ms))
+  //   cards: drawnCards,    // Names of the cards drawn
+  //   fortune: fortune,     // The fortune text
+  //   userInput: inputText, // The user input question
+  // }
+  const tarotReading= 'hello world';
   return tarotReading;
 }
 
@@ -466,24 +474,7 @@ const generateReadingLink = (reading) => {
 const regenerateReading = (reading) => {
   return {};
 }
-/**
- * Switches the front end to display the reading
- */
-const displayReading = (reading) => {
-//not done yet
-  // document.getElementById('cards').innerHTML = '';
-  //   for (const c of card) {
-  //     document.getElementById('cards').innerHTML += `
-  //       <img src='pics/Arcana/${c}.jpeg' alt='${c}'>
-  //     `;
-  //   }
-  //   document.getElementById('cards').style.display = 'flex';
-  //   document.getElementById('draw-cards').disabled = true;
-  //   output.textContent = 'Thinking...';
-  //   setTimeout(generateAnswer(card,questionToValidate), 1000);
-  //   output.style.display = 'block';
 
-}
 
 const getVoiceInput = () => {
 
@@ -543,4 +534,27 @@ document.getElementById('reset').addEventListener('click', () => {
     // document.getElementById('question').value = '';
 });
 
+//Generates results onClick
+function generate() {
+  let image = document.getElementById("display-img");
+  image.src = "./images/image1.svg";
 
+  let meaning = document.getElementById("meaning");
+  meaning.classList.toggle("show");
+
+  let saveButton = document.getElementById("save");
+  saveButton.classList.toggle("show");
+
+  let retryButton = document.getElementById("retry");
+  retryButton.classList.toggle("show");
+
+  let dropdownButton = document.querySelector(".dropbtn");
+  dropdownButton.style.display = "none";
+
+  const read = generateReading();
+
+  meaning.innerHTML = "";
+  meaning.innerHTML += `<p>${read}</p>`;
+  meaning.style.display = "block";
+
+}
