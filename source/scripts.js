@@ -1,16 +1,13 @@
 const USER_INPUT_TEXT_BOX_ID = 'user-input';
 const GENERATE_BUTTON_ID = 'generate-button';
 const OUTPUT_TEXT_BOX_ID = 'output-text';
-//const QUESTION_LIST_ID = 'question-list';
+const QUESTION_LIST_ID = 'question-list';
 const DRAW_CARDS_BUTTON_ID = 'draw-cards';
-
-const QUESTION_LIST = document.getElementById('myDropdown');
 
 //const output = document.getElementById('meaning');
 
 // When the user clicks on the button, toggle between hiding and showing the dropdown content 
 function dropDown() {
-  //document.getElementById("myDropdown").classList.toggle("show");
   const dropdownContent = document.getElementById('myDropdown');
   dropdownContent.classList.toggle("show");
 
@@ -28,8 +25,8 @@ function dropDown() {
 
     // Append the question link to the dropdown content
     dropdownContent.appendChild(questionLink);
-
   }
+
 
 }
 
@@ -44,6 +41,7 @@ window.onclick = function (event) {
               openDropdown.classList.remove('show');
           }
       }
+
   }
 }
 
@@ -342,9 +340,9 @@ init();
  * @returns -1 if the user input isn't valid (no selection made)
  */
 
-const getUserInputText = () => {
+function getUserInputText () {
   // For predefined questions (offline mode)
-  const input = document.getElementById(QUESTION_LIST_ID).value;
+  const input = document.getElementById(QUESTION_LIST_ID);
   // check to see if the current input is the disabled one
   if(input === "") {
     return -1;
@@ -420,42 +418,42 @@ const deleteAllReadings = () => {
  * @returns {Object} The reading object
  */
 
-const generateReading = () => {
-  // const drawnCards = drawCards();
+function generateReading(){
+  const drawnCards = drawCards();
 
-  // let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
-  // fortune += cardResponseData[drawnCards[0]].pastReading;
-  // fortune += cardResponseData[drawnCards[1]].presentReading;
-  // fortune += cardResponseData[drawnCards[2]].futureReading;
-  // const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
+  let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
+  fortune += cardResponseData[drawnCards[0]].pastReading;
+  fortune += cardResponseData[drawnCards[1]].presentReading;
+  fortune += cardResponseData[drawnCards[2]].futureReading;
+  const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
 
-  // const inputText = getUserInputText();
-  // if(inputText === -1) {
-  //   // could alert user of invalid input here
-  //   return;
-  // }
+  const inputText = getUserInputText();
+  if(inputText === -1) {
+    // could alert user of invalid input here
+    return;
+  }
 
-  // if(totalWeight >= -15 && totalWeight < -9) {
-  //   fortune += predefinedQuestionResponses[inputText].cautious;
-  // } else if(totalWeight >= -9 && totalWeight < -3) {
-  //   fortune += predefinedQuestionResponses[inputText].uncertain;
-  // } else if(totalWeight >= -3 && totalWeight < 3) {
-  //   fortune += predefinedQuestionResponses[inputText].neutral;
-  // } else if(totalWeight >= 3 && totalWeight < 9) {
-  //   fortune += predefinedQuestionResponses[inputText].positive;
-  // } else {
-  //   fortune += predefinedQuestionResponses[inputText].very_positive;
-  // }
+  if(totalWeight >= -15 && totalWeight < -9) {
+    fortune += predefinedQuestionResponses[inputText].cautious;
+  } else if(totalWeight >= -9 && totalWeight < -3) {
+    fortune += predefinedQuestionResponses[inputText].uncertain;
+  } else if(totalWeight >= -3 && totalWeight < 3) {
+    fortune += predefinedQuestionResponses[inputText].neutral;
+  } else if(totalWeight >= 3 && totalWeight < 9) {
+    fortune += predefinedQuestionResponses[inputText].positive;
+  } else {
+    fortune += predefinedQuestionResponses[inputText].very_positive;
+  }
 
-  // let tarotReading = {
-  //   id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
-  //   name: "Default",      // Name of the reading
-  //   time: Date.now(),     // Time of reading (Unix Timestamp (ms))
-  //   cards: drawnCards,    // Names of the cards drawn
-  //   fortune: fortune,     // The fortune text
-  //   userInput: inputText, // The user input question
-  // }
-  const tarotReading= 'hello world';
+  let tarotReading = {
+    id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
+    name: "Default",      // Name of the reading
+    time: Date.now(),     // Time of reading (Unix Timestamp (ms))
+    cards: drawnCards,    // Names of the cards drawn
+    fortune: fortune,     // The fortune text
+    //userInput: inputText, // The user input question
+  }
+  
   return tarotReading;
 }
 
@@ -519,8 +517,6 @@ function drawCards() {
   return drawnCards;
 }
 
-
-
 // Clear the cards and outputs
 document.getElementById('reset').addEventListener('click', () => {
   // Clear the cards
@@ -554,7 +550,14 @@ function generate() {
   const read = generateReading();
 
   meaning.innerHTML = "";
-  meaning.innerHTML += `<p>${read}</p>`;
+
+  meaning.innerHTML += `
+  <p>Reading ID: ${read.id}</p>
+  <p>Name: ${read.name}</p>
+  <p>Time: ${read.time}</p>
+  <p>Cards: ${read.cards.join(', ')}</p>
+  <p>${read.fortune}</p>`;
+
   meaning.style.display = "block";
 
 }
