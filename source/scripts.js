@@ -389,10 +389,17 @@ function saveReadings(readings) {
 }
 
 /**
+ * Adds a reading to localStorage, does not allow duplicate ids
  * @param {Object} reading The reading to save to localStorage
  */
 function saveReading(reading) {
   let readings = getReadings();
+
+  //dont allow duplicate ids
+  if (readings.find((r) => r.id == reading.id)) {
+    return
+  }
+  
   //update array of readings before saving it to localStorage
   readings.push(reading);
   saveReadings(readings);
