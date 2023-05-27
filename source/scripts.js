@@ -307,6 +307,50 @@ function renderHistory(){
     }
     historyList.push(historyObj);
   }
+  let history = document.getElementById('history');
+  history.innerHTML = '';
+  for (let index in readings){
+    historyObj = historyList[index];
+    let historyItem = document.createElement('div');
+    historyItem.classList.add('history-item');
+    historyItem.id = `history-item-${historyObj.id}`;
+    let historyItemImg = document.createElement('img');
+    historyItemImg.classList.add('history-item-img');
+    historyItemImg.src = historyObj.cardImgs[0];
+    historyItem.appendChild(historyItemImg);
+    let historyItemImg2 = document.createElement('img');
+    historyItemImg2.classList.add('history-item-img');
+    historyItemImg2.src = historyObj.cardImgs[1];
+    historyItem.appendChild(historyItemImg2);
+    let historyItemImg3 = document.createElement('img');
+    historyItemImg3.classList.add('history-item-img');
+    historyItemImg3.src = historyObj.cardImgs[2];
+    historyItem.appendChild(historyItemImg3);
+    let historyItemText = document.createElement('div');
+    historyItemText.classList.add('history-item-text');
+    historyItemText.innerHTML = `<p>${new Date(historyObj.time).toLocaleString()}</p>`;
+    historyItem.appendChild(historyItemText);
+    let historyItemBtns = document.createElement('div');
+    historyItemBtns.classList.add('history-item-btns');
+    let historyItemBtn = document.createElement('button');
+    historyItemBtn.classList.add('history-item-btn-delete');
+    historyItemBtn.innerHTML = 'Delete';
+    historyItemBtn.addEventListener('click', () => {
+      deleteReading(historyObj.id);
+      renderHistory();
+    })
+    historyItemBtns.appendChild(historyItemBtn);
+    let historyItemBtn2 = document.createElement('button');
+    historyItemBtn2.classList.add('history-item-btn-display');
+    historyItemBtn2.innerHTML = 'Display';
+    historyItemBtn2.addEventListener('click', () => {
+      currentReading = getReading(historyObj.id);
+      displayReading();
+    })
+    historyItemBtns.appendChild(historyItemBtn2);
+    historyItem.appendChild(historyItemBtns);
+    history.appendChild(historyItem);
+  }
 
 }
 /**
@@ -478,6 +522,21 @@ function drawCards() {
  * Updates the currentReading variable.
  */
 function generateHandler() {
+  
+
+  let question = getUserInputText();
+
+  const reading = generateReading(question);
+  
+  currentReading = reading;
+
+  displayReading();
+}
+
+/**
+ * Displays the currentReading
+ */
+function displayReading() {
   let imageLeft = document.getElementById("display-img-left");
   let imageMid = document.getElementById("display-img-mid");
   let imageRight = document.getElementById("display-img-right");
@@ -491,20 +550,15 @@ function generateHandler() {
 
   let retryButton = document.getElementById("retry");
   retryButton.classList.toggle("show", true);
-
-  let question = getUserInputText();
-
-  const reading = generateReading(question);
-
-  currentReading = reading;
-  imageLeft.src = "./images/Major Arcana/" + reading.cards[0] + ".jpeg";
-  imageMid.src = "./images/Major Arcana/" + reading.cards[1] + ".jpeg";
-  imageRight.src = "./images/Major Arcana/" + reading.cards[2] + ".jpeg";
+  imageLeft.src = "./images/Major Arcana/" + currentReading.cards[0] + ".jpeg";
+  imageMid.src = "./images/Major Arcana/" + currentReading.cards[1] + ".jpeg";
+  imageRight.src = "./images/Major Arcana/" + currentReading.cards[2] + ".jpeg";
   meaning.innerHTML = `
-  <p>Cards: ${reading.cards.join(', ')}</p>
-  <p>${reading.fortune}</p>`;
+  <p>Cards: ${currentReading.cards.join(', ')}</p>
+  <p>${currentReading.fortune}</p>`;
 
   meaning.style.display = "block";
+
 }
 
 
@@ -516,9 +570,7 @@ function retryHandler() {
   let question = currentReading.userInput;
   const reading = generateReading(question);
   currentReading = reading;
-  meaning.innerHTML = `
-  <p>Cards: ${reading.cards.join(', ')}</p>
-  <p>${reading.fortune}</p>`;
+  displayReading(); 
 }
 
 /**
