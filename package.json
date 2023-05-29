@@ -1,0 +1,15 @@
+{
+  "name": "cse110-sp21-group02",
+  "version": "1.0.0",
+  "description": "We are creating a web-app incorporating generative AI.",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jsdoc": "^4.0.2"
+  }
+}
