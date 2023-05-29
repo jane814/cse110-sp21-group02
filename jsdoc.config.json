@@ -1,0 +1,32 @@
+{
+  "source": {
+    "include": ["./source"],
+    "exclude": ["./node_modules"]
+  },
+  "opts": {
+    "destination": "./docs/jsdoc"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": false,
+    "default": {
+      "outputSourceFiles": true
+    },
+    "path": "ink-docstrap",
+    "theme": "cerulean",
+    "navType": "vertical",
+    "linenums": true,
+    "dateFormat": "MMMM Do YYYY, h:mm:ss a"
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  }
+}
