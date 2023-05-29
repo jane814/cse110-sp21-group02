@@ -3,8 +3,6 @@ name: Auto JS-Doc
 on:
   push:
     branches: [dev, main]
-  pull_request:
-    branches: [main]
 
 jobs:
   integration:
