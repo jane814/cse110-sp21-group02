@@ -32,11 +32,11 @@ jobs:
         run: npm ci
 
       - name: Super Linter
-      uses: github/super-linter@v4
-      env:
-        VALIDATE_ALL_CODEBASE: false
-        LINT_PATH: "./source"
-        DEFAULT_BRANCH: main
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          LINT_PATH: "./source"
+          DEFAULT_BRANCH: main
 
       - name: Jest
         id: jest
