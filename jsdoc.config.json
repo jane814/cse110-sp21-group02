@@ -1,7 +1,6 @@
 {
   "source": {
-    "include": ["./source"],
-    "exclude": ["./node_modules"]
+    "include": ["./source"]
   },
   "opts": {
     "destination": "./docs/jsdoc"
