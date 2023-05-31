@@ -299,8 +299,8 @@ function renderHistory(){
   let readings = getReadings();
   let historyList = [];
   for (let index in readings){
-    reading = readings[index]
-    historyObj = {
+    let reading = readings[index]
+    let historyObj = {
       id: reading.id,
       time: reading.time,
       cardImgs: [`./images/Major Arcana/${reading.cards[0]}.jpeg`,`./images/Major Arcana/${reading.cards[1]}.jpeg`,`./images/Major Arcana/${reading.cards[2]}.jpeg`],
@@ -310,7 +310,7 @@ function renderHistory(){
   let history = document.getElementById('history');
   history.innerHTML = '';
   for (let index in readings){
-    historyObj = historyList[index];
+    let historyObj = historyList[index];
     let historyItem = document.createElement('div');
     historyItem.classList.add('history-item');
     historyItem.id = `history-item-${historyObj.id}`;
@@ -548,24 +548,27 @@ function displayReading() {
   let imageMid = document.getElementById("display-img-mid");
   let imageRight = document.getElementById("display-img-right");
   
+  
+  let question = document.getElementById("display-question");
+  question.innerText = currentReading.userInput;
+  question.classList.toggle("show", true);
 
-  let meaning = document.getElementById("meaning");
-  meaning.classList.toggle("show", true);
+  
 
   let saveButton = document.getElementById("save");
   saveButton.classList.toggle("show", true);
 
   let retryButton = document.getElementById("retry");
   retryButton.classList.toggle("show", true);
+  
+  let meaning = document.getElementById("meaning");
   imageLeft.src = "./images/Major Arcana/" + currentReading.cards[0] + ".jpeg";
   imageMid.src = "./images/Major Arcana/" + currentReading.cards[1] + ".jpeg";
   imageRight.src = "./images/Major Arcana/" + currentReading.cards[2] + ".jpeg";
   meaning.innerHTML = `
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
-
-  meaning.style.display = "block";
-
+  meaning.classList.toggle("show", true);
 }
 
 
