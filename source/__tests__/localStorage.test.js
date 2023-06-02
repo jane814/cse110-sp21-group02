@@ -71,7 +71,7 @@ test('reading is renamed on localStorage', () => {
   scripts.saveReading(reading);
   scripts.renameReading('test1',key);
   const retrieved = JSON.parse(scripts.getReading(key))
-  expect(retrieved.name).toBe('test1);
+  expect(retrieved.name).toBe('test1');
 });
 
 
