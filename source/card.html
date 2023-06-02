@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="animation.css">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="flip.css">
+
+  <title>Tarot Card Reader</title>
+  <!--Main Script File-->
+</head>
+
+<body>
+  <button>
+    <a href="home.html">Home</a>
+  </button>
+  <div class="cards">
+    <script>
+      for (let i = 1; i <= 22; i++) {
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const cardFace = document.createElement('div');
+        cardFace.className = 'card-face';
+
+        const cardLabel = document.createElement('div');
+        cardLabel.className = 'card-label';
+        //cardLabel.textContent = i;
+
+        cardFace.appendChild(cardLabel);
+        card.appendChild(cardFace);
+        document.querySelector('.cards').appendChild(card);
+      }
+    </script>
+    <div id="generate-button">Generate</div>
+  </div>
+
+  <div class="container">
+    <div class="cardWrapper">
+
+      <!-- first Row -->
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+          <div class="cardflip">
+            <div class="front">
+              <h3 class="cardTitle">Flip me!</h3>
+            </div>
+            <div class="back">
+              <div class="content">
+                <h3 class="cardTitle">I was made with CSS3</h3>
+                <br />
+                <p id="happy"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+          <div class="cardflip">
+            <div class="front">
+              <h3 class="cardTitle">Flip me!</h3>
+            </div>
+            <div class="back">
+              <div class="content">
+                <h3 class="cardTitle">Bootstrap is my mother</h3>
+                <br />
+                <p id="sick"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+          <div class="cardflip">
+            <div class="front">
+              <h3 class="cardTitle">Flip me!</h3>
+            </div>
+            <div class="back">
+              <div class="content">
+                <h3 class="cardTitle">Welldone!</h3>
+                <br />
+                <p id="sad"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- first Row End -->
+    </div>
+    <!--cardWrapper Ends-->
+
+  </div>
+  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="./animation.js"></script>
+</body>
+   <!-- <script src="./script.js"></script> -->
+</html>
