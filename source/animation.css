@@ -4,7 +4,7 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, black, #220033);
+  background: url("./images/background-home.jpg");
   overflow: hidden;
 }
 
@@ -540,7 +540,7 @@ body {
     transform: scale(1.15);
   }
 }
-#generate-button {
+#generate-btn {
   display: none;
   background-color: #007bff;
   color: #fff;
@@ -552,8 +552,6 @@ body {
   cursor: pointer;
 }
 
-#generate-button:hover {
+#generate-btn:hover {
   background-color: #0056b3;
 }/*# sourceMappingURL=animation.css.map */
-
-

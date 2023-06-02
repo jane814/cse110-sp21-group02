@@ -1,5 +1,6 @@
 body {
-    background: linear-gradient(135deg, black, #220033);  overflow: hidden;
+    background: url("./images/background-home.jpg");
+      overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;

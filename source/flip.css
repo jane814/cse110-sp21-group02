@@ -46,8 +46,6 @@
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  box-shadow: 3px 5px 20px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
 }
 
 .cardflip .back {
@@ -60,32 +58,7 @@
 }
 
 .cardflip .back {
-  background: #03446A;
   transform: rotateY(180deg);
-}
-
-.cardContainer:first-child .cardflip .front {
-  background: #2aa9e0;
-}
-
-.cardContainer:first-child .cardflip .back {
-  background: #2aa9e0;
-}
-
-.cardContainer:nth-child(2) .cardflip .front {
-  background: #f39c12;
-}
-
-.cardContainer:nth-child(2) .cardflip .back {
-  background: #f39c12;
-}
-
-.cardContainer:nth-child(3) .cardflip .front {
-  background: #27ae60;
-}
-
-.cardContainer:nth-child(3) .cardflip .back {
-  background: #27ae60;
 }
 
 h3.cardTitle {

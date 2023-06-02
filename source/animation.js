@@ -3,6 +3,18 @@ document.addEventListener('DOMContentLoaded', function () {
   let selectedCards = [];
   let lastSelectedCard = null;
 
+
+  const containers = document.querySelectorAll('.container');
+  const container5 = document.querySelectorAll('.container5');
+
+  containers.forEach(function (container) {
+    container.style.display = 'none';
+  });
+
+  container5.forEach(function (container) {
+    container.style.display = 'none';
+  });
+
   cards.forEach(function (card) {
     card.addEventListener('click', function (event) {
       event.stopPropagation();
@@ -30,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (selectedCards.length === maxSelectedCards) {
           showGenerateButton();
-          
+
         }
       } else if (isActive) {
         card.classList.remove('active');
@@ -55,31 +67,32 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function showGenerateButton() {
-    const generateButton = document.getElementById('generate-button');
+    const generateButton = document.getElementById('generate-btn');
     generateButton.style.display = 'block';
-    generateButton.addEventListener('click', function() {
+    generateButton.addEventListener('click', function () {
       // Hide all cards
-      cards.forEach(function(card) {
+      cards.forEach(function (card) {
         card.style.display = 'none';
       });
-  
-      // // Show three cards in the middle
-      // const startIndex = Math.floor(cards.length / 2) - 1;
-      // for (let i = startIndex; i <= startIndex + 2; i++) {
-      //   if (cards[i]) {
-      //     cards[i].style.display = 'block';
-      //   }
-      // }
+
+      containers.forEach(function (container) {
+        container.style.display = 'block';
+      });
+
+      container5.forEach(function (container) {
+        container.style.display = 'block';
+      });
+
     });
   }
 
   function hideGenerateButton() {
-    const generateButton = document.getElementById('generate-button');
+    const generateButton = document.getElementById('generate-btn');
     generateButton.style.display = 'none';
   }
 });
 
 
-$('.cardflip').click(function(){
+$('.cardflip').click(function () {
   $(this).toggleClass('flipped');
 });
