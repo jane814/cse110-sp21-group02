@@ -1,9 +1,11 @@
 body {
-    background-color: black;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle at top left, #4456B7, white);
+
 }
 
 h1,
@@ -11,12 +13,17 @@ h2,
 h3,
 p {
     color: white;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 97px;
 }
 
 /* Dropdown Button */
 .dropbtn {
     background-color: #3498DB;
-    color: white;
+    color: black;
     padding: 20px;
     font-size: 30px;
     border: none;
@@ -42,7 +49,7 @@ p {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0 0 0 / 20%);
     z-index: 1;
 }
 
@@ -52,6 +59,19 @@ p {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+
+.button {
+    background-image: url('images/button.png');
+    width: 128px;
+    border: 0;
+    margin: 7px 0 5px 7px;
+    padding: 3px 0 6px;
+    cursor: hand;
+    cursor: pointer;
+    color: #9fad19;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
@@ -65,24 +85,35 @@ p {
 
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: white;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 2px 35px;
     text-decoration: none;
-    font-size: 17px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+
+    color: #000000;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+}
+
+/* Border of Header*/
+
+div.topnav {
+    border: 2px solid black;
 }
 
 #display {
@@ -107,15 +138,31 @@ h3 {
     margin-right: 10px;
 }
 
-.toShow {
+.to-show {
     display: none;
 }
 
-.toShow.show {
+.to-show.show {
     display: block;
 }
 
 .history-item-img {
     width: 50px;
     height: 100px;
+    padding-right: 10px;
+}
+
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+}
+
+.history-item-text {
+    padding-right: 10px;
 }

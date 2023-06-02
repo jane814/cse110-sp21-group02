@@ -1,16 +1,19 @@
-name: Build and Deploy
-on: [push]
-permissions:
-  contents: write
-jobs:
-  build-and-deploy:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
+# TODO: DOESN'T WORK YET
+# name: Build and Deploy
+# on:
+#   push:
+#     branches: [dev, main]
+# permissions:
+#   contents: write
+# jobs:
+#   build-and-deploy:
+#     concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout 🛎️
+#         uses: actions/checkout@v3
 
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: source # The folder the action should deploy.
+#       - name: Deploy 🚀
+#         uses: JamesIves/github-pages-deploy-action@v4
+#         with:
+#           folder: source # The folder the action should deploy.
