@@ -38,3 +38,41 @@ test('reading is saved on localStorage', () => {
   expect(retrieved).toBe(reading);
 });
 
+// basic test to make sure that a reading is removed properly
+test('reading is deleted on localStorage', () => {
+  const readings = [];
+  scripts.saveReadings(readings);
+  const reading = scripts.generateReading('How can I create more balance in my friendships?');
+  const key = reading.id;
+  scripts.saveReading(reading);
+  scripts.deleteReading(key);
+  const retrieved = JSON.parse(localStorage.getItem('readings'))
+  expect(retrieved).toBe([]);
+});
+
+// basic test to make sure that all readings are removed properly
+test('reading is deleted on localStorage', () => {
+  const readings = [];
+  scripts.saveReadings(readings);
+  const reading = scripts.generateReading('How can I create more balance in my friendships?');
+  const key = reading.id;
+  scripts.saveReading(reading);
+  scripts.deleteReadings();
+  const retrieved = JSON.parse(localStorage.getItem('readings'))
+  expect(retrieved).toBe([]);
+});
+
+// basic test to make sure that a reading is removed properly
+test('reading is deleted on localStorage', () => {
+  const readings = [];
+  scripts.saveReadings(readings);
+  const reading = scripts.generateReading('How can I create more balance in my friendships?');
+  const key = reading.id;
+  scripts.saveReading(reading);
+  scripts.renameReading('test1',key);
+  const retrieved = JSON.parse(scripts.getReading(key))
+  expect(retrieved.name).toBe('test1);
+});
+
+
+
