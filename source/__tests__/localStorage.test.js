@@ -51,7 +51,7 @@ test('reading is deleted on localStorage', () => {
 });
 
 // basic test to make sure that all readings are removed properly
-test('reading is deleted on localStorage', () => {
+test('readings are deleted on localStorage', () => {
   const readings = [];
   scripts.saveReadings(readings);
   const reading = scripts.generateReading('How can I create more balance in my friendships?');
@@ -62,8 +62,8 @@ test('reading is deleted on localStorage', () => {
   expect(retrieved).toBe([]);
 });
 
-// basic test to make sure that a reading is removed properly
-test('reading is deleted on localStorage', () => {
+// basic test to make sure that a reading is renamed properly
+test('reading is renamed on localStorage', () => {
   const readings = [];
   scripts.saveReadings(readings);
   const reading = scripts.generateReading('How can I create more balance in my friendships?');
