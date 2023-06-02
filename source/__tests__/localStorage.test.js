@@ -46,7 +46,7 @@ test('reading is deleted on localStorage', () => {
   const key = reading.id;
   scripts.saveReading(reading);
   scripts.deleteReading(key);
-  const retrieved = JSON.parse(localStorage.getItem('readings'))
+  const retrieved = JSON.parse(localStorage.getItem('readings'));
   expect(retrieved).toBe([]);
 });
 
@@ -58,7 +58,7 @@ test('readings are deleted on localStorage', () => {
   const key = reading.id;
   scripts.saveReading(reading);
   scripts.deleteReadings();
-  const retrieved = JSON.parse(localStorage.getItem('readings'))
+  const retrieved = JSON.parse(localStorage.getItem('readings'));
   expect(retrieved).toBe([]);
 });
 
@@ -70,8 +70,8 @@ test('reading is renamed on localStorage', () => {
   const key = reading.id;
   scripts.saveReading(reading);
   scripts.renameReading('test1',key);
-  const retrieved = JSON.parse(scripts.getReading(key))
-  expect(retrieved.name).toBe('test1);
+  const retrieved = JSON.parse(scripts.getReading(key));
+  expect(retrieved.name).toBe('test1');
 });
 
 
