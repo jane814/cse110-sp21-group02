@@ -557,6 +557,10 @@ function displayReading() {
 
   let retryButton = document.getElementById("retry");
   retryButton.classList.toggle("show", true);
+
+  let history = document.getElementById("history");
+  history.classList.toggle("show", true);
+
   imageLeft.src = "./images/Major Arcana/" + currentReading.cards[0] + ".jpeg";
   imageMid.src = "./images/Major Arcana/" + currentReading.cards[1] + ".jpeg";
   imageRight.src = "./images/Major Arcana/" + currentReading.cards[2] + ".jpeg";
@@ -566,6 +570,34 @@ function displayReading() {
 
   meaning.style.display = "block";
 
+}
+
+/**
+ * Function called for "going back" to the home screen
+ */
+function displayHomeScreen() {
+
+  // Set card images back to boxes
+  let imageLeft = document.getElementById("display-img-left");
+  let imageMid = document.getElementById("display-img-mid");
+  let imageRight = document.getElementById("display-img-right");
+  imageLeft.src = "./images/tarot-card-box.svg";
+  imageMid.src = "./images/tarot-card-box.svg";
+  imageRight.src = "./images/tarot-card-box.svg";
+  //
+
+  // hide all elements that are part of the toShow class
+  let itemsToHide = document.getElementsByClassName('toShow');
+
+  for (let i = 0; i < itemsToHide.length; i++) {
+    itemsToHide[i].classList.toggle("show", false);
+  }
+  //
+
+  // manually set innerHTML to be blank
+  let meaning = document.getElementById("meaning");
+  meaning.innerHTML = "";
+  //
 }
 
 
