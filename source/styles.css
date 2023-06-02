@@ -149,4 +149,20 @@ h3 {
 .history-item-img {
     width: 50px;
     height: 100px;
+    padding-right: 10px;
+}
+
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+}
+
+.history-item-text {
+    padding-right: 10px;
 }
