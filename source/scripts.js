@@ -631,4 +631,171 @@ function generateReadingLink (reading) { // eslint-disable-line no-unused-vars
 }
 
 // Run init() after page loads
-addEventListener('DOMContentLoaded', init);
+//addEventListener('DOMContentLoaded', init, animation );
+
+addEventListener('DOMContentLoaded', init)
+document.addEventListener('DOMContentLoaded', animation)
+
+
+
+//card flip function
+var flipcards = document.querySelectorAll('.cardflip');
+flipcards.forEach(function(card) {
+  card.addEventListener('click', function() {
+    this.classList.toggle('flipped');
+  });
+});
+
+
+
+// animation scripts
+function animation(){
+
+  const cards = document.querySelectorAll('.card');
+  let selectedCards = [];
+  let lastSelectedCard = null;
+
+
+  const containers = document.querySelectorAll('.container');
+  const container5 = document.querySelectorAll('.container5');
+  //hide 3 selected card
+  containers.forEach(function (container) {
+    container.style.display = 'none';
+  });
+  //hide save and retry button
+  container5.forEach(function (container) {
+    container.style.display = 'none';
+  });
+
+  
+  cards.forEach(function (card) {
+    card.addEventListener('click', function (event) {
+      event.stopPropagation();
+
+      const isActive = card.classList.contains('active');
+      const maxSelectedCards = 3;
+      const isMaxLimitReached = selectedCards.length >= maxSelectedCards;
+
+      // Activate the clicked card
+      if (!isActive && !isMaxLimitReached) {
+        card.classList.add('active');
+        selectedCards.push(card);
+
+        // Calculate the position to center the card on the screen
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const cardWidth = card.offsetWidth;
+        const cardHeight = card.offsetHeight;
+        const scrollOffset = window.scrollX || window.pageXOffset;
+        const cardOffsetLeft = card.getBoundingClientRect().left + scrollOffset;
+        const cardOffsetTop = card.getBoundingClientRect().top + window.pageYOffset;
+        const cardPositionX = (windowWidth / 2) - (cardWidth / 2) - cardOffsetLeft;
+        const cardPositionY = (windowHeight / 2) - (cardHeight / 2) - cardOffsetTop;
+        card.style.transform = `translate(${cardPositionX}px, ${cardPositionY}px)`;
+
+        lastSelectedCard = card;
+
+        // Show the generate button when the maximum limit is reached
+        if (selectedCards.length === maxSelectedCards) {
+          showGenerateButton();
+
+        }
+      } else if (isActive) {
+        // Deactivate the clicked card
+        card.classList.remove('active');
+        selectedCards = selectedCards.filter(function (selectedCard) {
+          return selectedCard !== card;
+        });
+        hideGenerateButton();
+      }
+    });
+  });
+//Reset all cards when clicking outside
+  document.addEventListener('click', function (event) {
+    cards.forEach(function (card) {
+      card.classList.remove('active');
+      card.style.transform = 'none';
+    });
+
+    selectedCards = [];
+    lastSelectedCard = null;
+
+    hideGenerateButton();
+  });
+
+  function showGenerateButton() {
+    const generateButton = document.getElementById('generate-btn');
+    generateButton.style.display = 'block';
+    generateButton.addEventListener('click', function () {
+      // Hide all cards after click generate
+      cards.forEach(function (card) {
+        card.style.display = 'none';
+      });
+
+      // Show the containers
+      containers.forEach(function (container) {
+        container.style.display = 'block';
+      });
+      container5.forEach(function (container) {
+        container.style.display = 'block';
+      });
+
+    });
+  }
+
+  function hideGenerateButton() {
+    const generateButton = document.getElementById('generate-btn');
+    generateButton.style.display = 'none';
+  }
+
+}
+
+// switching from home, draw cards and history
+document.addEventListener('DOMContentLoaded', function () {
+  // Get the button elements
+  const historyButton = document.getElementById('history-button');
+  const homeButton = document.getElementById('home-button');
+  const drawCardButton = document.getElementById('drawcard-button');
+
+  // Get the page elements
+  const historyPage = document.querySelector('.historyPage');
+  const homePage = document.querySelector('.homePage');
+  const cardPage = document.querySelector('.cardPage');
+
+  // Function to show the home page
+  function showHomePage() {
+    // Show the homePage
+    homePage.style.display = 'block';
+
+    // Hide the other pages
+    historyPage.style.display = 'none';
+    cardPage.style.display = 'none';
+  }
+
+  // Show the home page initially
+  showHomePage();
+
+  // Add click event listener to the history button
+  historyButton.addEventListener('click', function () {
+    // Show the historyPage
+    historyPage.style.display = 'block';
+
+    // Hide the other pages
+    homePage.style.display = 'none';
+    cardPage.style.display = 'none';
+  });
+
+  // Add click event listener to the home button
+  homeButton.addEventListener('click', showHomePage);
+
+  // Add click event listener to the draw card button
+  drawCardButton.addEventListener('click', function () {
+    // Show the cardPage
+    cardPage.style.display = 'block';
+
+    // Hide the other pages
+    historyPage.style.display = 'none';
+    homePage.style.display = 'none';
+  });
+});
+
