@@ -18,125 +18,125 @@
   <button id="drawcard-button">Draw Cards</button>
 
   <div class="cardPage">
-  <div class="cards">
-    <script>
-      for (let i = 1; i <= 22; i++) {
-        const card = document.createElement('div');
-        card.className = 'card';
+    <div class="cards">
+      <script>
+        for (let i = 1; i <= 22; i++) {
+          const card = document.createElement('div');
+          card.className = 'card';
 
-        const cardFace = document.createElement('div');
-        cardFace.className = 'card-face';
+          const cardFace = document.createElement('div');
+          cardFace.className = 'card-face';
 
-        const cardLabel = document.createElement('div');
-        cardLabel.className = 'card-label';
-        //cardLabel.textContent = i;
+          const cardLabel = document.createElement('div');
+          cardLabel.className = 'card-label';
+          //cardLabel.textContent = i;
 
-        cardFace.appendChild(cardLabel);
-        card.appendChild(cardFace);
-        document.querySelector('.cards').appendChild(card);
-      }
-    </script>
-  </div>
-
-  <button id="generate-btn">Generate</button>
-
-  <div class="container">
-    <div class="cardWrapper">
-
-      <!-- first Row -->
-      <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
-          <div class="cardflip">
-            <div class="front">
-              <img src="./images/back.png" alt="Your Image">
-            </div>
-            <div class="back">
-              <img src="./images/tarot-card-box.svg" id="display-img-left" alt="" style="width: 400px; height: 400px;">
-              <div class="content">
-                <h3 class="cardTitle">First Card</h3>
-                <br />
-                <p id="happy"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
-          <div class="cardflip">
-            <div class="front">
-              <img src="./images/back.png" alt="Your Image">
-            </div>
-            <div class="back">
-              <img src="./images/tarot-card-box.svg" id="display-img-mid" alt="" style="width: 400px; height: 400px;">
-              <div class="content">
-                <h3 class="cardTitle">2nd Card</h3>
-                <br />
-                <p id="sick"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
-          <div class="cardflip">
-            <div class="front">
-              <img src="./images/back.png" alt="Your Image">
-            </div>
-            <div class="back">
-              <img src="./images/tarot-card-box.svg" id="display-img-right" alt="" style="width: 400px; height: 400px;">
-              <div class="content">
-                <h3 class="cardTitle">3rd Card</h3>
-                <br />
-                <p id="sad"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- first Row End -->
+          cardFace.appendChild(cardLabel);
+          card.appendChild(cardFace);
+          document.querySelector('.cards').appendChild(card);
+        }
+      </script>
     </div>
-    <!--cardWrapper Ends-->
+
+    <button id="generate-btn">Generate</button>
+
+    <div class="container">
+      <div class="cardWrapper">
+
+        <!-- first Row -->
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+            <div class="cardflip">
+              <div class="front">
+                <img src="./images/back.png" alt="Your Image">
+              </div>
+              <div class="back">
+                <!-- <img src="./images/tarot-card-box.svg" id="display-img-left" alt="" style="border-radius: 15px;"> -->
+                <img src="./images/front.png" alt="Your Image">
+                <div class="content">
+                  <h3 class="cardTitle">First Card</h3>
+                  <p class="cardmeaning">Card meaning: <b>123</b></p>
+                  <br />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+            <div class="cardflip">
+              <div class="front">
+                <img src="./images/back.png" alt="Your Image">
+              </div>
+              <div class="back">
+                <!-- <img src="./images/tarot-card-box.svg" id="display-img-mid" alt="" style="border-radius: 15px;"> -->
+                <img src="./images/front.png" alt="Your Image">
+                <div class="content">
+                  <h3 class="cardTitle">2nd Card</h3>
+                  <p class="cardmeaning">Card meaning: <b>123</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 cardContainer">
+            <div class="cardflip">
+              <div class="front">
+                <img src="./images/back.png" alt="Your Image">
+              </div>
+              <div class="back">
+                <!-- <img src="./images/tarot-card-box.svg" id="display-img-right" alt="" style="border-radius: 15px;"> -->
+                <img src="./images/front.png" alt="Your Image">
+                <div class="content">
+                  <h3 class="cardTitle">3rd Card</h3>
+                  
+                  <p class="cardmeaning">Card meaning: <b>123</b></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- first Row End -->
+      </div>
+      <!--cardWrapper Ends-->
+    </div>
+
+    <section>
+      <p class="to-show" id="meaning"></p>
+    </section>
+
+    <div class="container5">
+      <button id="save" class="to-show">Save</button>
+      <button id="retry" class="to-show">Retry</button>
+    </div>
   </div>
 
-  <section>
-    <p class="to-show" id="meaning">Meaning</p>
-  </section>
 
-  <div class="container5">
-    <button id="save" class="to-show">Save</button>
-    <button id="retry" class="to-show">Retry</button>
+  <div class="historyPage">
+    <div id="display">
+      <img src="./images/tarot-card-box.svg" id="display-img-left" alt="" style="width: 200px; height: 250px;">
+      <img src="./images/tarot-card-box.svg" id="display-img-mid" alt="" style="width: 200px; height: 250px;">
+      <img src="./images/tarot-card-box.svg" id="display-img-right" alt="" style="width: 200px; height: 250px;">
   </div>
-</div>
 
-
-<div class="historyPage">
-  <section>
+    <section>
       <div class="container-col">
-          <h2>History</h2>
-          <div class="container" id="history">
-          </div>
+        <h2>History</h2>
+        <div class="container" id="history">
+        </div>
       </div>
-  </section>
-</div>
+    </section>
+  </div>
 
 
 
-<div class="homePage">
+  <div class="homePage">
 
-  <h1>Home Page</h1>
-  <h2 id="display-question" class="toShow">Question</h2>
-
-  <section>
-      <div class="container-col">
-          <div class="container" id="history">
-          </div>
-      </div>
-  </section>
-
-  <select id="question-list">
-  </select>
-</div>
+    <h1>Home Page</h1>
+    <h2 id="display-question" class="toShow">Question</h2>
+    <select id="question-list">
+    </select>
+  </div>
 
 </body>
 <script src="./scripts.js"></script>

@@ -483,6 +483,23 @@ function generateReading (question) {
   fortune += cardResponseData[drawnCards[1]].presentReading;
   fortune += cardResponseData[drawnCards[2]].futureReading;
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
+  
+//Show the name of the card after fliping 
+const firstCardTitle = document.querySelector('.cardTitle');
+const secondCardTitle = document.querySelectorAll('.cardTitle')[1]; // Select the second occurrence
+const thirdCardTitle = document.querySelectorAll('.cardTitle')[2]; // Select the third occurrence
+const firstCardMeaning = document.querySelector('.cardmeaning');
+const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
+const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+// Update the text content with the corresponding drawn cards
+firstCardTitle.textContent = drawnCards[0];
+secondCardTitle.textContent = drawnCards[1];
+thirdCardTitle.textContent = drawnCards[2];
+firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
+secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
+thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
+
+//get overall fortune like above
 
   if (totalWeight >= -15 && totalWeight < -9) {
     // -15 to -10
@@ -581,6 +598,11 @@ function displayReading () {
   imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
   imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
   imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
+
+
+
+
+
   meaning.innerHTML = `
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
@@ -638,6 +660,10 @@ document.addEventListener('DOMContentLoaded', animation)
 
 
 
+
+
+
+
 //card flip function
 var flipcards = document.querySelectorAll('.cardflip');
 flipcards.forEach(function(card) {
@@ -691,6 +717,8 @@ function animation(){
         const cardOffsetTop = card.getBoundingClientRect().top + window.pageYOffset;
         const cardPositionX = (windowWidth / 2) - (cardWidth / 2) - cardOffsetLeft;
         const cardPositionY = (windowHeight / 2) - (cardHeight / 2) - cardOffsetTop;
+          
+        
         card.style.transform = `translate(${cardPositionX}px, ${cardPositionY}px)`;
 
         lastSelectedCard = card;
@@ -710,6 +738,7 @@ function animation(){
       }
     });
   });
+
 //Reset all cards when clicking outside
   document.addEventListener('click', function (event) {
     cards.forEach(function (card) {
@@ -766,15 +795,15 @@ document.addEventListener('DOMContentLoaded', function () {
   function showHomePage() {
     // Show the homePage
     homePage.style.display = 'block';
-
     // Hide the other pages
     historyPage.style.display = 'none';
     cardPage.style.display = 'none';
+    // Refresh the page
   }
 
   // Show the home page initially
   showHomePage();
-
+  
   // Add click event listener to the history button
   historyButton.addEventListener('click', function () {
     // Show the historyPage
@@ -786,13 +815,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Add click event listener to the home button
-  homeButton.addEventListener('click', showHomePage);
+  homeButton.addEventListener('click', function () {
+    showHomePage();
+    location.reload();
+  });
 
   // Add click event listener to the draw card button
   drawCardButton.addEventListener('click', function () {
     // Show the cardPage
     cardPage.style.display = 'block';
-
     // Hide the other pages
     historyPage.style.display = 'none';
     homePage.style.display = 'none';
