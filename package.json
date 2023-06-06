@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "We are creating a web-app incorporating generative AI.",
   "scripts": {
-    "test": "npx jest",
+    "test": "jest",
     "lint": "docker run -e RUN_LOCAL=true -e USE_FIND_ALGORITHM=true -e FILTER_REGEX_EXCLUDE=\".* images/.*\" -e FILTER_REGEX_INCLUDE=\".*source/.*\" -e LINTER_RULES_PATH=\"/\" -e JAVASCRIPT_ES_CONFIG_FILE=\".eslintrc.json\" -e VALIDATE_JAVASCRIPT_STANDARD=false -v %cd%:/tmp/lint github/super-linter"
   },
   "author": "cse110-sp23-group02",
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.4",
+    "babel-jest": "^29.5.0",
     "eslint": "^8.41.0",
     "jest": "^29.5.0",
-    "jsdoc": "^4.0.2"
+    "jest-environment-jsdom": "^29.5.0",
+    "jsdoc": "^4.0.2",
+    "jsdom": "^22.1.0"
   }
 }

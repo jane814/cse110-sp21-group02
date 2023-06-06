@@ -1,11 +1,11 @@
-import * as scripts from '../scripts.js';
+const scripts = require('../scripts');
 
 // basic test to make sure readings array is saved properly onto localStorage
 test('readings are saved on localStorage', () => {
   const readings = [];
   scripts.saveReadings(readings);
   const retrieved = JSON.parse(localStorage.getItem('readings'));
-  expect(retrieved).toBe(readings);
+  expect(retrieved).toEqual(readings);
 });
 
 // basic test to make sure that the saved array of readings is being retrieved correctly

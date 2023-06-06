@@ -23,4 +23,4 @@ jobs:
 
       - name: Jest
         id: jest
-        run: npx jest || echo '::set-output name=status::failure'
+        run: jest || echo '::set-output name=status::failure'
