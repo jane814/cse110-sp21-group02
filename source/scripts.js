@@ -485,7 +485,7 @@ function generateReading (question) {
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
   
   //Show the name of the card after fliping 
-  const firstCardTitle = document.querySelector('.cardTitle');
+  /*const firstCardTitle = document.querySelector('.cardTitle');
   const secondCardTitle = document.querySelectorAll('.cardTitle')[1]; // Select the second occurrence
   const thirdCardTitle = document.querySelectorAll('.cardTitle')[2]; // Select the third occurrence
   const firstCardMeaning = document.querySelector('.cardmeaning');
@@ -497,7 +497,7 @@ function generateReading (question) {
   thirdCardTitle.textContent = drawnCards[2];
   firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
   secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
-  thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
+  thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;*/
 
   //get overall fortune like above
 
