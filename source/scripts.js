@@ -484,22 +484,22 @@ function generateReading (question) {
   fortune += cardResponseData[drawnCards[2]].futureReading;
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
   
-//Show the name of the card after fliping 
-// const firstCardTitle = document.querySelector('.cardTitle');
-// const secondCardTitle = document.querySelectorAll('.cardTitle')[1]; // Select the second occurrence
-// const thirdCardTitle = document.querySelectorAll('.cardTitle')[2]; // Select the third occurrence
-// const firstCardMeaning = document.querySelector('.cardmeaning');
-// const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
-// const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
-// // Update the text content with the corresponding drawn cards
-// firstCardTitle.textContent = drawnCards[0];
-// secondCardTitle.textContent = drawnCards[1];
-// thirdCardTitle.textContent = drawnCards[2];
-// firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
-// secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
-// thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
+  //Show the name of the card after fliping 
+  const firstCardTitle = document.querySelector('.cardTitle');
+  const secondCardTitle = document.querySelectorAll('.cardTitle')[1]; // Select the second occurrence
+  const thirdCardTitle = document.querySelectorAll('.cardTitle')[2]; // Select the third occurrence
+  const firstCardMeaning = document.querySelector('.cardmeaning');
+  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
+  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+  // Update the text content with the corresponding drawn cards
+  firstCardTitle.textContent = drawnCards[0];
+  secondCardTitle.textContent = drawnCards[1];
+  thirdCardTitle.textContent = drawnCards[2];
+  firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
+  secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
+  thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
 
-//get overall fortune like above
+  //get overall fortune like above
 
   if (totalWeight >= -15 && totalWeight < -9) {
     // -15 to -10

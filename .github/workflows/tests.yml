@@ -23,4 +23,12 @@ jobs:
 
       - name: Jest
         id: jest
-        run: npx jest || echo '::set-output name=status::failure'
+        run: npx jest
+
+      - name: Set Failure Status
+        id: set-failure-status
+        run: echo "::set-output name=failed::${{ steps.jest.outcome != 'success' }}"
+
+      - name: Fail Workflow
+        if: ${{ steps.set-failure-status.outputs.failed == 'true' }}
+        run: exit 1
