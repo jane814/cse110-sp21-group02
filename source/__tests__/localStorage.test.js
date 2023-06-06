@@ -76,3 +76,27 @@ test('reading is renamed on localStorage', () => {
   const retrieved = functions.getReading(key);
   expect(retrieved.name).toEqual('test1');
 });
+
+//test to save multiple readings to localStorage
+test('add multiple readings to localStorage', () => {
+  let reading = functions.generateReading('How can I create more balance in my friendships?');
+  let reading2 = functions.generateReading('What do I need to focus on at my current workplace?');
+  let reading3 = functions.generateReading('How is my past affecting my present?');
+  let reading4 = functions.generateReading('How can I better strengthen my current relationship?');
+  let readings = [reading,reading2,reading3,reading4];
+  functions.saveReadings(readings);
+  let retrieved = JSON.parse(localStorage.getItem('readings'));
+  expect(retrieved).toEqual(readings);
+});
+
+//test to get readings from localStorage
+test('add multiple readings to localStorage', () => {
+  let reading = functions.generateReading('How can I create more balance in my friendships?');
+  let reading2 = functions.generateReading('What do I need to focus on at my current workplace?');
+  let reading3 = functions.generateReading('How is my past affecting my present?');
+  let reading4 = functions.generateReading('How can I better strengthen my current relationship?');
+  let readings = [reading,reading2,reading3,reading4];
+  functions.saveReadings(readings);
+  let retrieved = functions.getReadings();
+  expect(retrieved).toEqual(readings);
+});
