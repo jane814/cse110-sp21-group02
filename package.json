@@ -25,6 +25,5 @@
   "jest": {
     "preset": "jest-puppeteer",
     "verbose": true,
-    "testEnviroment": "jsdom"
   }
 }
