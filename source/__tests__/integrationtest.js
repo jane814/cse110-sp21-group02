@@ -38,31 +38,48 @@ describe('Basic user flow for Website', () => {
     it('Checking History', async () => {
         console.log('Checking History...');
         // Select and click history button
+        const histButton = await page.getElementById("history-button");
+        await histButton.click();
   
         // Select the most recent fortune to be displayed
-  
+        const histDisplayButton = await page.getElementById("history-item-btn-display");
+        await histDisplayButton.click();
+
         // Expect fortune displayed to not be empty
-    
+        const meaning = document.getElementById('meaning');
+        expect(meaning.classList.toggle('show')).toBe(true);
     });
   
     // User deletes fortune from history
     it('Deleting a fortune', async () => {
         console.log('Deleting a fortune...');
         // Select and click delete button
-  
+        const deleteButton = await page.getElementById("history-item-btn-delete");
+        await deleteButton.click();
+
         // Get local storage
+        const currentStorage = await page.evaluate(() => {
+          return localStorage.getItem("readings");
+        });
 
         // Expect local storage to be empty
-    
+        expect(currentStorage).toBe('[]');
     });
 
     // User returns to homepage
     it('Return to homepage', async () => {
         console.log('Returning to home...');
         // Select and click home button
+        const homeButton = await page.getElementById("home-button");
+        await homeButton.click();
 
         // Expect local storage to be empty
-    
+        const currentStorage = await page.evaluate(() => {
+          return localStorage.getItem("readings");
+        });
+
+        // Expect local storage to be empty
+        expect(currentStorage).toBe('[]');
     });
   
   });
