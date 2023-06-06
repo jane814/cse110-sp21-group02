@@ -2,11 +2,11 @@
   "name": "cse110-sp21-group02",
   "version": "1.0.0",
   "description": "We are creating a web-app incorporating generative AI.",
-  "main": "test.js",
   "scripts": {
-    "test": "jest"
+    "test": "npx jest",
+    "lint": "docker run -e RUN_LOCAL=true -e USE_FIND_ALGORITHM=true -e FILTER_REGEX_EXCLUDE=\".* images/.*\" -e FILTER_REGEX_INCLUDE=\".*source/.*\" -e LINTER_RULES_PATH=\"/\" -e JAVASCRIPT_ES_CONFIG_FILE=\".eslintrc.json\" -e VALIDATE_JAVASCRIPT_STANDARD=false -v %cd%:/tmp/lint github/super-linter"
   },
-  "author": "",
+  "author": "cse110-sp23-group02",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.41.0",
