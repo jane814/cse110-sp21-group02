@@ -13,6 +13,21 @@ body {
   animation: movement 10s linear infinite;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.2); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.3); 
+}
+
 /* cloud movement */
 @keyframes movement {
   0% {
@@ -389,7 +404,6 @@ textarea{
 #meaning {
   display: flex;
   width: 750px;
-  height: 750px;
   overflow: hidden;
 }
 
