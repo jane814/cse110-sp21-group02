@@ -90,11 +90,16 @@ test('add multiple readings to localStorage', () => {
 
 //test to get readings from localStorage
 test('add multiple readings to localStorage', () => {
-  let reading = functions.generateReading('How can I create more balance in my friendships?');
-  let reading2 = functions.generateReading('What do I need to focus on at my current workplace?');
-  let reading3 = functions.generateReading('How is my past affecting my present?');
-  let reading4 = functions.generateReading('How can I better strengthen my current relationship?');
-  let readings = [reading,reading2,reading3,reading4];
+  let questions = [
+    'How can I create more balance in my friendships?',
+    'What do I need to focus on at my current workplace?',
+    'How is my past affecting my present?',
+    'How can I better strengthen my current relationship?'
+  ];
+  let readings = [];
+  for (let i = 0; i < questions.length; i++) {
+    readings.push(functions.generateReading(questions[i]));
+  }
   functions.saveReadings(readings);
   let retrieved = functions.getReadings();
   expect(retrieved).toEqual(readings);
