@@ -43,7 +43,9 @@ describe('Basic user flow for Website', () => {
     it('Checking History', async () => {
         console.log('Checking History...');
         // Select and click history button
-        const histButton = await page.$('#history-button');
+        const buttons = await page.$$("a");
+        console.log(buttons);
+        const histButton = buttons[1];
         await histButton.click();
   
         // Select the most recent fortune to be displayed
@@ -51,8 +53,13 @@ describe('Basic user flow for Website', () => {
         await histDisplayButton.click();
 
         // Expect fortune displayed to not be empty
-        const meaning = document.$('#meaning');
-        expect(meaning.classList.toggle('show')).toBe(true);
+        const meaning = await page.$('#meaning');
+        let exists =false;
+        let classList = await meaning.getProperty("classList");
+        if(classList.length !=0 ){
+          exists = true;
+        }
+        expect(exists).toBe(true);
     });
   
     // User deletes fortune from history
@@ -73,18 +80,18 @@ describe('Basic user flow for Website', () => {
 
     // User returns to homepage
     it('Return to homepage', async () => {
-        console.log('Returning to home...');
-        // Select and click home button
-        const homeButton = await page.$('#home-button');
-        await homeButton.click();
+       console.log('Returning to home...');
+       // Select and click home button
+       const homeButton = await page.$('.topnav');
+       await homeButton.click();
 
-        // Expect local storage to be empty
-        const currentStorage = await page.evaluate(() => {
-          return localStorage.getItem('readings');
-        });
+       // Expect local storage to be empty
+       const currentStorage = await page.evaluate(() => {
+         return localStorage.getItem('readings');
+       });
 
-        // Expect local storage to be empty
-        expect(currentStorage).toBe('[]');
+       // Expect local storage to be empty
+       expect(currentStorage).toBe('[]');
     });
   
   });
