@@ -647,7 +647,9 @@ function displayHomeScreen() {
   document.getElementById("fortune-showing").hidden = true;
 
   // show card images
-  document.getElementById("display").hidden = false;
+  document.getElementById("display1").hidden = false;
+  document.getElementById("display2").hidden = false; 
+  document.getElementById("display3").hidden = false;
 
   // show generate button and question list
   document.getElementById("fortune-generating").hidden = false;
@@ -664,7 +666,7 @@ function displayHistoryScreen() {
   // show history section
   document.getElementById("history-section").hidden = false;
 
-  // hide card images
+  //hide card images
   document.getElementById("display1").hidden = true;
   document.getElementById("display2").hidden = true;
   document.getElementById("display3").hidden = true;
