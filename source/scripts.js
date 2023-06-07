@@ -310,7 +310,7 @@ function renderHistory(){
   let history = document.getElementById('history');
   history.innerHTML = '';
   for (let index in readings){
-    historyObj = historyList[index];
+    let historyObj = historyList[index];
     let historyItem = document.createElement('div');
     historyItem.classList.add('history-item');
     historyItem.id = `history-item-${historyObj.id}`;
