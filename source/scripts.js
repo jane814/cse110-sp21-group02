@@ -299,10 +299,11 @@ function renderHistory(){
   let readings = getReadings();
   let historyList = [];
   for (let index in readings){
-    reading = readings[index]
-    historyObj = {
+    let reading = readings[index]
+    let historyObj = {
       id: reading.id,
       time: reading.time,
+      name: reading.name,
       cardImgs: [`./images/Major Arcana/${reading.cards[0]}.jpeg`,`./images/Major Arcana/${reading.cards[1]}.jpeg`,`./images/Major Arcana/${reading.cards[2]}.jpeg`],
     }
     historyList.push(historyObj);
@@ -314,21 +315,15 @@ function renderHistory(){
     let historyItem = document.createElement('div');
     historyItem.classList.add('history-item');
     historyItem.id = `history-item-${historyObj.id}`;
-    let historyItemImg = document.createElement('img');
-    historyItemImg.classList.add('history-item-img');
-    historyItemImg.src = historyObj.cardImgs[0];
-    historyItem.appendChild(historyItemImg);
-    let historyItemImg2 = document.createElement('img');
-    historyItemImg2.classList.add('history-item-img');
-    historyItemImg2.src = historyObj.cardImgs[1];
-    historyItem.appendChild(historyItemImg2);
-    let historyItemImg3 = document.createElement('img');
-    historyItemImg3.classList.add('history-item-img');
-    historyItemImg3.src = historyObj.cardImgs[2];
-    historyItem.appendChild(historyItemImg3);
+    for (let i = 0; i < historyObj.cardImgs.length; i++) {
+      let historyItemImg = document.createElement('img');
+      historyItemImg.classList.add('history-item-img');
+      historyItemImg.src = historyObj.cardImgs[i];
+      historyItem.appendChild(historyItemImg);
+    }
     let historyItemText = document.createElement('div');
     historyItemText.classList.add('history-item-text');
-    historyItemText.innerHTML = `<p>${new Date(historyObj.time).toLocaleString()}</p>`;
+    historyItemText.innerHTML = `<p>${historyObj.name}</p>`;
     historyItem.appendChild(historyItemText);
     let historyItemBtns = document.createElement('div');
     historyItemBtns.classList.add('history-item-btns');
@@ -487,7 +482,7 @@ function generateReading(question) {
 
   let tarotReading = {
     id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
-    name: "Default",      // Name of the reading
+    name: new Date().toLocaleString(),      // Name of the reading
     time: Date.now(),     // Time of reading (Unix Timestamp (ms))
     cards: drawnCards,    // Names of the cards drawn
     fortune: fortune,     // The fortune text
@@ -578,15 +573,6 @@ function retryHandler() {
   const reading = generateReading(question);
   currentReading = reading;
   displayReading(); 
-}
-
-/**
- * @param {Object} reading The reading to generate a link for
- */
-function generateReadingLink(reading) {
-  // TODO: implement (v2)
-  console.log(reading)
-  return "";
 }
 
 // Run init() after page loads
