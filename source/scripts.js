@@ -573,8 +573,9 @@ function displayReading() {
   let saveButton = document.getElementById('save');
   saveButton.classList.toggle('show', true);
 
-  let retryButton = document.getElementById('retry');
-  retryButton.classList.toggle('show', true);
+  // Commented out because of retry button removal, see retry method or index.html for more info
+  //let retryButton = document.getElementById('retry');
+  //retryButton.classList.toggle('show', true);
   imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
   imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
   imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
@@ -590,13 +591,14 @@ function displayReading() {
 /**
  * Handler for the retry button on click. 
  * Generates a new reading with the same question as the currentReading.
+ * Update: Commented out, feature is redundant due to generate button being available
  */
-function retryHandler() { 
-  let question = currentReading.userInput;
-  const reading = generateReading(question);
-  currentReading = reading;
-  displayReading(); 
-}
+// function retryHandler() { 
+//   let question = currentReading.userInput;
+//   const reading = generateReading(question);
+//   currentReading = reading;
+//   displayReading(); 
+// }
 
 /**
  * Opens the popup for renaming a reading
@@ -630,7 +632,7 @@ try{
     generateReading,
     drawCards,
     generateHandler,
-    retryHandler,
+    //retryHandler,
     displayReading,
   };
 } catch {
