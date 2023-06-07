@@ -592,21 +592,25 @@ function generateReadingLink(reading) {
 // Run init() after page loads
 addEventListener('DOMContentLoaded', init)
 
-module.exports = {
-  init,
-  getUserInputText,
-  getReadings,
-  saveReadings,
-  saveReading,
-  renameReading,
-  getReading,
-  deleteReading,
-  deleteAllReadings,
-  generateReading,
-  drawCards,
-  generateReadingLink,
-  generateHandler,
-  retryHandler,
-  displayReading,
-};
+try{
+  module.exports = {
+    init,
+    getUserInputText,
+    getReadings,
+    saveReadings,
+    saveReading,
+    renameReading,
+    getReading,
+    deleteReading,
+    deleteAllReadings,
+    generateReading,
+    drawCards,
+    generateReadingLink,
+    generateHandler,
+    retryHandler,
+    displayReading,
+  };
+} catch {
+  // do nothing, running in browser
+}
 
