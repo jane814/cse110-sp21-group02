@@ -385,3 +385,12 @@ h3 {
 #meaning, .card-container {
   width: 750px;
 }
+
+#question-list {
+  background-color: #fff;
+  padding: 16px;
+  font-family: "DM Sans", sans-serif;
+  color: #83818c;
+  font-weight: bold;
+  border-radius: 30px;
+}
