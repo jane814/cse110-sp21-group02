@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<style>
+.button {
+  background-image:url('images/button.png') ;
+  width: 128px;
+  border: 0px;
+  margin: 7px 0 5px 7px;
+  padding: 3px 0 6px 0;
+  cursor: hand;
+  cursor: pointer;
+  color: #9fad19;
+  font-family: Tahoma;
+  font-size: 11px;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <title>Tarot Card Reader</title>
+    <!--Main Script File-->
+    <script src="scripts.js"></script>
 </head>
 
 <body>
@@ -17,11 +28,9 @@
     <h1>Tarot Card Reader</h1>
     <!-- Navbar -->
     <div class="topnav">
-        <a href="#" onclick="displayHomeScreen()">Home</a>
+        <a href="#">Home</a>
         <a href="#">History</a>
     </div>
-    <!-- Question Display -->
-    <h2 id="display-question" class="to-show">Question</h2>
     <!-- Main Display -->
     <div id="display">
         <img src="./images/tarot-card-box.svg" id="display-img-left" alt="" style="width: 200px; height: 250px;">
@@ -30,33 +39,33 @@
     </div>
     <!-- Meaning Box -->
     <section>
-        <p class="to-show" id="meaning">Meaning</p>
+        <p class="toShow" id="meaning">Meaning</p>
     </section>
 
     <div class="container">
-        <button id="save" class="to-show">Save</button>
-        <button id="retry" class="to-show">Retry</button>
+        <button id="save" class="toShow">Save</button>
+        <button id="retry" class="toShow">Retry</button>
     </div>
-
+    
     <!-- Dropdown Input Box (populated by backend) -->
-    <select id="question-list">
+    <select id = "question-list">
     </select>
 
     <!-- Generate Button -->
     <button id="generate-btn">Generate</button>
 
-
+    
     <!-- History -->
     <section>
-        <h2 class="history">History</h2>
-        <div class="container">
-            <div class="container-col to-show" id="history">
+        <div class="container-col">
+            <h2>History</h2>
+            <div class="container" id="history">
             </div>
         </div>
     </section>
+    ​
 
-    <!--Main Script File-->
-    <script src="scripts.js"></script>
+    
 </body>
 
 </html>
