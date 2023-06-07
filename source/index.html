@@ -27,8 +27,8 @@
     <h1>Tarot Card Reader</h1>
     <!-- Navbar -->
     <nav class="nav">
-        <a href="#" class="nav-item ">Home</a>
-        <a href="#" class="nav-item ">History</a>
+        <a href="#" onclick="displayHomeScreen()" class="nav-item ">Home</a>
+        <a href="#" onclick="displayHistoryScreen()" class="nav-item ">History</a>
         <span class="nav-indicator"></span>
     </nav>
     <!-- Main Display -->
@@ -59,29 +59,30 @@
         </div>
     </div>
 
-    <!-- Meaning Box -->
-    <section>
-        <p class="to-show" id="meaning">Meaning</p>
+    <section id="fortune-showing">
+        <!-- Meaning Box -->
+        <p id="meaning">Meaning</p>
+        <div class="container">
+            <button id="save">Save</button>
+            <!--
+                Commented out, feature is redundant due to generate button being available
+                <button id="retry" class="to-show">Retry</button>
+            -->
+        </div>
     </section>
-
-    <div class="container">
-        <button id="save" class="to-show">Save</button>
-        <!--
-            Commented out, feature is redundant due to generate button being available
-            <button id="retry" class="to-show">Retry</button>
-        -->
-    </div>
-
-    <!-- Dropdown Input Box (populated by backend) -->
-    <select id="question-list">
-    </select>
-
-    <!-- Generate Button -->
-    <button id="generate-btn">Generate</button>
-
-
+    
+    <section id="fortune-generating">
+        <div class="container-col">
+            <!-- Dropdown Input Box (populated by backend) -->
+            <select id = "question-list">
+            </select>
+            <!-- Generate Button -->
+            <button id="generate-btn">Generate</button>
+        </div>
+    </section>
+    
     <!-- History -->
-    <section>
+    <section id="history-section">
         <div class="container-col">
             <h2>History</h2>
             <div class="container" id="history">
@@ -90,15 +91,17 @@
     </section>
 
     <!-- Renaming Popup for History -->
-    <div id="popup" class="popup-container">
-        <div class="popup-box">
-            <label for="new-name">New Name:</label>
-            <input type="text" id="new-name" />
-
-            <button id="popup-rename-btn">Rename</button>
-            <button onclick="closePopup()">Close</button>
+    <section>
+        <div id="popup" class="popup-container">
+            <div class="popup-box">
+                <label for="new-name">New Name:</label>
+                <input type="text" id="new-name" />
+        
+                <button id="popup-rename-btn">Rename</button>
+                <button onclick="closePopup()">Close</button>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!--Main Script File-->
     <script src="scripts.js"></script>

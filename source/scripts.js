@@ -289,7 +289,12 @@ function init() {
     }
     renderHistory();
   });
-  document.getElementById('retry').addEventListener('click', retryHandler);
+
+  // Added: on load, we should be at the home screen, so call displayHomeScreen
+  displayHomeScreen();
+
+  // Commented out because of retry button removal
+  //document.getElementById('retry').addEventListener('click', retryHandler);
 }
 
 /**
@@ -566,17 +571,25 @@ function displayReading() {
   let imageLeft = document.getElementById('display-img-left');
   let imageMid = document.getElementById('display-img-mid');
   let imageRight = document.getElementById('display-img-right');
+  
+  // Commented out, replaced with new approach for showing these elements
+  // let meaning = document.getElementById('meaning');
+  // meaning.classList.toggle('show', true);
 
+  // let saveButton = document.getElementById('save');
+  // saveButton.classList.toggle('show', true);
 
-  let meaning = document.getElementById('meaning');
-  meaning.classList.toggle('show', true);
+  // New approach:
+  // show save button and fortune meaning
+  document.getElementById("fortune-showing").hidden = false;
 
-  let saveButton = document.getElementById('save');
-  saveButton.classList.toggle('show', true);
+  // show history section
+  document.getElementById("history-section").hidden = false;
 
-  // Commented out because of retry button removal, see retry method or index.html for more info
+  // Commented out because of retry button removal
   //let retryButton = document.getElementById('retry');
   //retryButton.classList.toggle('show', true);
+
   imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
   imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
   imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
@@ -611,6 +624,52 @@ function openPopup() {
  */
 function closePopup() {
   document.getElementById("popup").style.display = "none";
+}
+
+/**
+ * Home screen display function
+ * This function will hide all html elements that we do not want shown on the home screen,
+ * and show all elements which we do want displayed
+ */
+function displayHomeScreen() {
+  // hide history section
+  document.getElementById("history-section").hidden = true;
+
+  // change card images back to their defaults
+  document.getElementById('display-img-left').src = './images/cloudback.png';
+  document.getElementById('display-img-mid').src = './images/cloudback.png';
+  document.getElementById('display-img-right').src = './images/cloudback.png';
+
+  // hide save button and fortune meaning
+  document.getElementById("fortune-showing").hidden = true;
+
+  // show card images
+  document.getElementById("display").hidden = false;
+
+  // show generate button and question list
+  document.getElementById("fortune-generating").hidden = false;
+  
+}
+
+/**
+ * History screen display function
+ * This function will hide all html elements that we do not want shown on the history screen,
+ * and show all elements which we do want displayed
+ * For this screen, we only want history related items, all others buttons/images should be hidden
+ */
+function displayHistoryScreen() {
+  // show history section
+  document.getElementById("history-section").hidden = false;
+
+  // hide card images
+  document.getElementById("display").hidden = true;
+
+  // hide save button and fortune meaning
+  document.getElementById("fortune-showing").hidden = true;
+
+  // hide generate button and question list
+  document.getElementById("fortune-generating").hidden = true;
+
 }
 
 
