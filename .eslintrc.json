@@ -15,7 +15,8 @@
     "alert": "readonly",
     "document": "readonly",
     "localStorage": "readonly",
-    "addEventListener": "readonly"
+    "addEventListener": "readonly",
+    "page": "readonly"
   },
   "rules": {
     "semi": ["error", "always"],

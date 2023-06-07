@@ -58,11 +58,10 @@ test('readings are deleted on localStorage', () => {
   const readings = [];
   functions.saveReadings(readings);
   const reading = functions.generateReading('How can I create more balance in my friendships?');
-  const key = reading.id;
   functions.saveReading(reading);
   functions.deleteAllReadings();
   const retrieved = localStorage.getItem('readings');
-  expect(retrieved).toEqual("");
+  expect(retrieved).toEqual('');
 });
 
 // basic test to make sure that a reading is renamed properly
