@@ -267,17 +267,83 @@ h3 {
 }
 
 /* card position */
-#display-img-left{
-    width: 250px; 
-    height: 250px;
+#display-img-left,
+#display-img-mid,
+#display-img-right {
+  width: 250px;
+  height: 250px;
 }
 
-#display-img-mid{
-    width: 250px; 
-    height: 250px;
-}
+/* #display-back-left,
+#display-back-mid,
+#display-back-right {
+  width: 250px;
+  height: 250px;
+} */
 
-#display-img-right{
-    width: 250px; 
-    height: 250px;
-}
+/* flip function */
+ .animation {
+    transition: all 0.3s ease;
+  }
+  
+  .card-container {
+    transition: all 0.3s ease;
+    perspective: 800px;
+    padding-left: 1%;
+    display: flex;
+    justify-content: center;
+  }
+
+/*   
+  .cardflip {
+    width: 99%;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  .cardflip.flipped {
+    transform: rotateY(180deg);
+  } */
+  
+  /* .cardflip .front,
+  .cardflip .back {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 60px;
+    color: white;
+    text-align: center;
+    font-size: 4em;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .cardflip .back {
+    margin-top: -30px;
+    padding-top: 10%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    white-space: nowrap;
+    transform: rotateY(180deg);
+  }
+  
+  @media (max-width: 1000px) {
+    .cardflip {
+      height: 175px;
+    }
+  }
+  
+  @media (max-width: 390px) {
+    .cardflip {
+      width: 100%;
+      height: 150px;
+    }
+  
+    .cardWrapper {
+      margin-left: 4%;
+    }
+  } */

@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-.button {
-  background-image:url('images/button.png') ;
-  width: 128px;
-  border: 0px;
-  margin: 7px 0 5px 7px;
-  padding: 3px 0 6px 0;
-  cursor: hand;
-  cursor: pointer;
-  color: #9fad19;
-  font-family: Tahoma;
-  font-size: 11px;
-}
+    .button {
+        background-image: url('images/button.png');
+        width: 128px;
+        border: 0px;
+        margin: 7px 0 5px 7px;
+        padding: 3px 0 6px 0;
+        cursor: hand;
+        cursor: pointer;
+        color: #9fad19;
+        font-family: Tahoma;
+        font-size: 11px;
+    }
 </style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,11 +32,33 @@
         <span class="nav-indicator"></span>
     </nav>
     <!-- Main Display -->
-    <div id="display">
-        <img src="./images/cloudback.png" id="display-img-left" alt="">
-        <img src="./images/cloudback.png" id="display-img-mid" alt="">
-        <img src="./images/cloudback.png" id="display-img-right" alt="">
+    <div class="card-container">
+        <div class="cardflip">
+            <div class="front" id="display">
+                <img src="./images/cloudback.png" id="display-img-left" alt="">
+            </div>
+            <div class="back">
+                <img src="/images/back.png" id="display-back-left" alt="">
+            </div>
+        </div>
+        <div class="cardflip">
+            <div class="front" id="display">
+                <img src="./images/cloudback.png" id="display-img-mid" alt="">
+            </div>
+            <div class="back">
+                <img src="/images/back.png" id="display-back-right" alt="">
+            </div>
+        </div>
+        <div class="cardflip">
+            <div class="front" id="display">
+                <img src="./images/cloudback.png" id="display-img-right" alt="">
+            </div>
+            <div class="back">
+                <img src="/images/back.png" id="display-back-right" alt="">
+            </div>
+        </div>
     </div>
+
     <!-- Meaning Box -->
     <section>
         <p class="to-show" id="meaning">Meaning</p>
@@ -48,15 +71,15 @@
             <button id="retry" class="to-show">Retry</button>
         -->
     </div>
-    
+
     <!-- Dropdown Input Box (populated by backend) -->
-    <select id = "question-list">
+    <select id="question-list">
     </select>
 
     <!-- Generate Button -->
     <button id="generate-btn">Generate</button>
 
-    
+
     <!-- History -->
     <section>
         <div class="container-col">
@@ -68,13 +91,13 @@
 
     <!-- Renaming Popup for History -->
     <div id="popup" class="popup-container">
-      <div class="popup-box">
-        <label for="new-name">New Name:</label>
-        <input type="text" id="new-name" />
-  
-        <button id="popup-rename-btn">Rename</button>
-        <button onclick="closePopup()">Close</button>
-      </div>
+        <div class="popup-box">
+            <label for="new-name">New Name:</label>
+            <input type="text" id="new-name" />
+
+            <button id="popup-rename-btn">Rename</button>
+            <button onclick="closePopup()">Close</button>
+        </div>
     </div>
 
     <!--Main Script File-->
