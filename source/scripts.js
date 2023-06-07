@@ -488,19 +488,10 @@ function deleteAllReadings() {
 function generateReading(question) {
   const drawnCards = drawCards();
 
-  let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
-  fortune += cardResponseData[drawnCards[0]].pastReading;
-  fortune += cardResponseData[drawnCards[1]].presentReading;
-  fortune += cardResponseData[drawnCards[2]].futureReading;
+  let fortune = ''
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
 
-  const firstCardMeaning = document.querySelector('.cardmeaning');
-  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
-  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
-
-  firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
-  secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
-  thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
+  
 
   if (totalWeight >= -15 && totalWeight < -9) {
     // -15 to -10
@@ -526,6 +517,9 @@ function generateReading(question) {
     cards: drawnCards,    // Names of the cards drawn
     fortune: fortune,     // The fortune text
     userInput: question, // The user input question
+    pastMeaning: cardResponseData[drawnCards[0]].pastReading,
+    presentMeaning: cardResponseData[drawnCards[1]].presentReading,
+    futureMeaning: cardResponseData[drawnCards[2]].futureReading
   };
 
   return tarotReading;
@@ -602,6 +596,15 @@ function displayReading() {
 
   // show history section
   document.getElementById('history-section').hidden = false;
+
+  
+  const firstCardMeaning = document.querySelector('.cardmeaning');
+  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
+  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+
+  firstCardMeaning.textContent = currentReading.pastMeaning;
+  secondCardMeaing.textContent = currentReading.presentMeaning;
+  thirdCardMeaning.textContent = currentReading.futureMeaning;
 
   // Commented out because of retry button removal
   //let retryButton = document.getElementById('retry');
