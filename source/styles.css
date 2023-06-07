@@ -27,6 +27,8 @@ h1 {
     color: white;
     font-family: "DM Sans", sans-serif;
     font-style: normal;
+    text-shadow: 2px 2px #6177d9;
+
     font-weight: 400;
     font-size: 80px;
     line-height: 97px;
@@ -44,6 +46,8 @@ p {
     color: white;
     font-family: "DM Sans", sans-serif;
     font-style: normal;
+    text-shadow: 2px 2px #687bd2;
+
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
