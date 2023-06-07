@@ -636,4 +636,3 @@ try{
 } catch {
   // do nothing, running in browser
 }
-
