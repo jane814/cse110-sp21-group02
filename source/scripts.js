@@ -632,7 +632,7 @@ try{
     generateReading,
     drawCards,
     generateHandler,
-    retryHandler,
+    //retryHandler,
     displayReading,
   };
 } catch {
