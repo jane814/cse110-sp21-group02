@@ -2,7 +2,7 @@
 This file contains the version log for the fortune teller project.
 
 ## [v1.0.0] - 2023-06-07
-- [`8e7d75b`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/8e7d75b4fd8467e37d758096d9f612cba1b61652)
+[`8e7d75b`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/8e7d75b4fd8467e37d758096d9f612cba1b61652) - First fully functioning version
 ### Key features added
 - ALL CRUD capabilities have been added
 - Rename function, user is able to rename a saved fortune (Update aspect of CRUD)
@@ -15,7 +15,7 @@ This file contains the version log for the fortune teller project.
 - Display card button should direct users to a new page
 
 ## [v0.2.0] - 2023-06-06
-- [`a3aaa95`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/a3aaa95a271b30e65e577375c2fffd4202c6866b)
+[`a3aaa95`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/a3aaa95a271b30e65e577375c2fffd4202c6866b) - End of Sprint 1
 ### Key features added
 - Display function, user is able to diplay a previously saved fortune (Read aspect of CRUD)
 
@@ -25,7 +25,7 @@ This file contains the version log for the fortune teller project.
 - Additional sytling for text and buttons is needed
 
 ## [v0.1.0] - 2023-05-26
-- [`42ac0ab`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/42ac0abc02e2e9f02b50e962fec33f684e2bd2f6) - First skeleton of the web app
+[`42ac0ab`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/42ac0abc02e2e9f02b50e962fec33f684e2bd2f6) - First skeleton of the web app
 ### Key features added
 - Added some CRUD capabilities to the app
 - Generate function, user is able to create a new fortune (Create aspect of CRUD)
