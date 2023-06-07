@@ -350,7 +350,10 @@ function renderHistory() {
     displayBtn.innerHTML = 'Display';
     displayBtn.addEventListener('click', () => {
       currentReading = getReading(historyObj.id);
-      displayReading();
+      // change HERE
+      //displayReading();
+      // Changed: this now calls displaySavedFortune
+      displaySavedFortune();
     });
     let renameBtn = document.createElement('button');
     renameBtn.classList.add('history-item-btn-rename');
@@ -586,7 +589,8 @@ function displayReading() {
 
   // New approach:
   // show save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = false;
+  document.getElementById('save').hidden = false;
+  document.getElementById('meaning-section').hidden = false;
 
   // show history section
   document.getElementById('history-section').hidden = false;
@@ -648,7 +652,9 @@ function displayHomeScreen() {
   document.getElementById('display-img-right').src = './images/cloudback.png';
 
   // hide save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = true;
+  //document.getElementById('fortune-showing').hidden = true;
+  document.getElementById('meaning-section').hidden = true;
+  document.getElementById('save').hidden = true;
 
   // show card images
   document.querySelector('.card-container').style.display = 'flex';
@@ -672,11 +678,49 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
   document.querySelector('.card-container').style.display = 'none';
 
   // hide save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = true;
+  //document.getElementById('fortune-showing').hidden = true;
+  document.getElementById('meaning-section').hidden = true;
+  document.getElementById('save').hidden = true;
 
   // hide generate button and question list
   document.getElementById('fortune-generating').hidden = true;
 
+}
+
+/**
+ * Display a saved fortune
+ * This function will be similar to the displayReading function, but without the option of generating a new reading
+ */
+function displaySavedFortune() {
+  // show cards from fortune
+  let imageLeft = document.getElementById('display-img-left');
+  let imageMid = document.getElementById('display-img-mid');
+  let imageRight = document.getElementById('display-img-right');
+
+  // hide card images
+  document.querySelector('.card-container').style.display = 'flex';
+
+  // hide save button, this will display an already saved fortune
+  document.getElementById('save').hidden = true;
+
+  // show meaning, aka the fortune itself
+  document.getElementById('meaning-section').hidden = false;
+
+  // show history section
+  document.getElementById('history-section').hidden = false;
+
+  // hide question list and generate button
+  document.getElementById('fortune-generating').hidden = true;
+
+  imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
+  imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
+  imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
+
+  let meaning = document.getElementById('meaning');
+  meaning.innerHTML = `
+  <p>Cards: ${currentReading.cards.join(', ')}</p>
+  <p>${currentReading.fortune}</p>`;
+  meaning.style.display = 'block';
 }
 
 

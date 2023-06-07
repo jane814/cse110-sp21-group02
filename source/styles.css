@@ -368,3 +368,7 @@ h3 {
   text-align: center;
   flex-wrap: wrap;
 }
+
+#history {
+  align-items: start;
+}
