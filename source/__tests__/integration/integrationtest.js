@@ -47,7 +47,7 @@ describe('Basic user flow for Website', () => {
         await histButton.click();
   
         // Select the most recent fortune to be displayed
-        const histDisplayButton = await page.$('#history-item-btn-display');
+        const histDisplayButton = await page.$('.history-item-btn-display');
         await histDisplayButton.click();
 
         // Expect fortune displayed to not be empty
@@ -59,7 +59,7 @@ describe('Basic user flow for Website', () => {
     it('Deleting a fortune', async () => {
         console.log('Deleting a fortune...');
         // Select and click delete button
-        const deleteButton = await page.$('#history-item-btn-delete');
+        const deleteButton = await page.$('.history-item-btn-delete');
         await deleteButton.click();
 
         // Get local storage
