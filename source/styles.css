@@ -12,6 +12,7 @@ body {
     background-image: url("./images/cloud.png");
     animation: movement 10s linear infinite;
 }
+
 /* cloud movement */
 @keyframes movement {
     0% {
@@ -28,9 +29,7 @@ h1 {
     font-style: normal;
 	margin: auto;
     display: grid;
-
 	letter-spacing: 0.0015em;
-	font-size: 5em;
 	text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
 		-2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff,
 		-4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff,
@@ -40,6 +39,7 @@ h1 {
     font-size: 80px;
     line-height: 97px;
 }
+
 h2,
 h3 {
     color: white;
@@ -49,12 +49,12 @@ h3 {
     font-size: 40px;
     line-height: 48px;
 }
+
 p {
     color: white;
     font-family: "DM Sans", sans-serif;
     font-style: normal;
     text-shadow: 2px 2px #687bd2;
-
     font-weight: 400;
     font-size: 20px;
     line-height: 32px;
@@ -120,8 +120,6 @@ p {
     border: none;
     background-size: 300% 100%;
     border-radius: 50px;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
 
@@ -143,7 +141,7 @@ p {
     background-color: #fff;
     padding: 0 20px;
     border-radius: 40px;
-    box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+    box-shadow: 0 10px 40px rgba(159, 162, 177, 80%);
   }
   
   .nav-item {
@@ -157,7 +155,8 @@ p {
     font-weight: 500;
     position: relative;
   }
-  .nav-item:before {
+
+  .nav-item::before {
     content: "";
     position: absolute;
     bottom: -6px;
@@ -170,7 +169,7 @@ p {
     transition: 0.3s;
   }
   
-  .nav-item:not(.is-active):hover:before {
+  .nav-item:not(.is-active):hover::before {
     opacity: 1;
     bottom: 0;
   }
@@ -185,12 +184,11 @@ p {
     bottom: 0;
     height: 4px;
     transition: 0.4s;
-    height: 5px;
     z-index: 1;
     border-radius: 8px 8px 0 0;
   }
   
-  @media (max-width: 580px) {
+  @media screen and (max-width: 580px) {
     .nav {
       overflow: auto;
     }
@@ -246,6 +244,7 @@ h3 {
 .history-item-text {
     padding-right: 10px;
 }
+
 .popup-container {
     display: none;
     position: fixed;
