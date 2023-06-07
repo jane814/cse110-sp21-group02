@@ -562,6 +562,8 @@ function generateHandler() {
 
   displayReading();
 
+  flipcard();
+
 }
 
 /**
@@ -649,9 +651,7 @@ function displayHomeScreen() {
   document.getElementById('fortune-showing').hidden = true;
 
   // show card images
-  document.getElementById('display1').hidden = false;
-  document.getElementById('display2').hidden = false; 
-  document.getElementById('display3').hidden = false;
+  document.querySelector('.card-container').style.display = 'flex';
 
   // show generate button and question list
   document.getElementById('fortune-generating').hidden = false;
@@ -669,9 +669,7 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
   document.getElementById('history-section').hidden = false;
 
   //hide card images
-  document.getElementById('display1').hidden = true;
-  document.getElementById('display2').hidden = true;
-  document.getElementById('display3').hidden = true;
+  document.querySelector('.card-container').style.display = 'none';
 
   // hide save button and fortune meaning
   document.getElementById('fortune-showing').hidden = true;
@@ -706,13 +704,18 @@ try {
   // do nothing, running in browser
 }
 
-
-
 function flipcard() { // eslint-disable-line no-unused-vars
   var cardFlips = document.querySelectorAll('.cardflip');
   cardFlips.forEach(function (cardFlip) {
     cardFlip.addEventListener('click', function () {
       this.classList.toggle('flipped');
     });
+  });
+}
+
+function removeflipcard() { // eslint-disable-line no-unused-vars
+  var cardFlips = document.querySelectorAll('.cardflip');
+  cardFlips.forEach(function(cardFlip) {
+    cardFlip.removeEventListener('click', flipcard);
   });
 }
