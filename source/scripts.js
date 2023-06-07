@@ -598,20 +598,20 @@ function retryHandler() {
   displayReading(); 
 }
 
+/**
+ * Opens the popup for renaming a reading
+ */
 function openPopup() {
   document.getElementById("popup").style.display = "flex";
 }
 
+/**
+ * Closes the popup for renaming a reading
+ */
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
 
-function rename() {
-  var newName = document.getElementById("new-name").value;
-  // Perform the renaming operation here or handle the value as needed
-  alert("Renaming to: " + newName);
-  closePopup();
-}
 
 // Run init() after page loads
 addEventListener('DOMContentLoaded', init);
