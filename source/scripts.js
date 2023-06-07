@@ -571,7 +571,10 @@ function displayReading() {
   let imageLeft = document.getElementById('display-img-left');
   let imageMid = document.getElementById('display-img-mid');
   let imageRight = document.getElementById('display-img-right');
-  
+
+  document.getElementById("display1").hidden = false;
+  document.getElementById("display2").hidden = false;
+  document.getElementById("display3").hidden = false;
   // Commented out, replaced with new approach for showing these elements
   // let meaning = document.getElementById('meaning');
   // meaning.classList.toggle('show', true);
@@ -648,7 +651,7 @@ function displayHomeScreen() {
 
   // show generate button and question list
   document.getElementById("fortune-generating").hidden = false;
-  
+
 }
 
 /**
@@ -662,7 +665,9 @@ function displayHistoryScreen() {
   document.getElementById("history-section").hidden = false;
 
   // hide card images
-  document.getElementById("display").hidden = true;
+  document.getElementById("display1").hidden = true;
+  document.getElementById("display2").hidden = true;
+  document.getElementById("display3").hidden = true;
 
   // hide save button and fortune meaning
   document.getElementById("fortune-showing").hidden = true;
