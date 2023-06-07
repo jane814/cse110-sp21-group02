@@ -599,10 +599,6 @@ function displayReading () {
   imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
   imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
 
-
-
-
-
   meaning.innerHTML = `
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
