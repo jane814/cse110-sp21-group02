@@ -491,6 +491,14 @@ function generateReading(question) {
   fortune += cardResponseData[drawnCards[2]].futureReading;
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
 
+  const firstCardMeaning = document.querySelector('.cardmeaning');
+  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
+  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+
+  firstCardMeaning.textContent = cardResponseData[drawnCards[0]].pastReading;
+  secondCardMeaing.textContent = cardResponseData[drawnCards[1]].presentReading;
+  thirdCardMeaning.textContent = cardResponseData[drawnCards[2]].futureReading;
+
   if (totalWeight >= -15 && totalWeight < -9) {
     // -15 to -10
     fortune += predefinedQuestionResponses[question].cautious;
