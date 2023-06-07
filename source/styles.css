@@ -16,10 +16,11 @@ body {
 /* cloud movement */
 @keyframes movement {
     0% {
-        background-position: 0px 0px;
+        background-position: 0 0;
     }
+
     100% {
-        background-position: 560px 0px;
+        background-position: 560px 0;
     }
 }
 
@@ -108,7 +109,7 @@ p {
 
 #generate-btn {
     background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 75%);
+    box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
     margin-top: 25px;
     text-align: center;
     width: 200px;
@@ -141,7 +142,7 @@ p {
     background-color: #fff;
     padding: 0 20px;
     border-radius: 40px;
-    box-shadow: 0 10px 40px rgba(159, 162, 177, 80%);
+    box-shadow: 0 10px 40px rgba(159 162 177 80%);
   }
   
   .nav-item {
@@ -188,7 +189,7 @@ p {
     border-radius: 8px 8px 0 0;
   }
   
-  @media screen and (max-width: 580px) {
+  @media (width <= 580px) {
     .nav {
       overflow: auto;
     }
@@ -252,7 +253,7 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 50%);
+    background-color: rgba(0 0 0 50%);
     align-items: center;
     justify-content: center;
 }
@@ -262,7 +263,7 @@ h3 {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 30%);
+    box-shadow: 0 2px 5px rgba(0 0 0 30%);
 }
 
 /* card position */
