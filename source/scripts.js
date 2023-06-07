@@ -636,9 +636,6 @@ function displayHomeScreen() {
   // hide history section
   document.getElementById("history-section").hidden = true;
 
-  // hide popup, which is related to renaming fortunes
-  //document.getElementById("popup").style.display = "none";
-
   // change card images back to their defaults
   document.getElementById('display-img-left').src = './images/cloudback.png';
   document.getElementById('display-img-mid').src = './images/cloudback.png';
@@ -646,7 +643,34 @@ function displayHomeScreen() {
 
   // hide save button and fortune meaning
   document.getElementById("fortune-showing").hidden = true;
+
+  // show card images
+  document.getElementById("display").hidden = false;
+
+  // show generate button and question list
+  document.getElementById("fortune-generating").hidden = false;
   
+}
+
+/**
+ * History screen display function
+ * This function will hide all html elements that we do not want shown on the history screen,
+ * and show all elements which we do want displayed
+ * For this screen, we only want history related items, all others buttons/images should be hidden
+ */
+function displayHistoryScreen() {
+  // show history section
+  document.getElementById("history-section").hidden = false;
+
+  // hide card images
+  document.getElementById("display").hidden = true;
+
+  // hide save button and fortune meaning
+  document.getElementById("fortune-showing").hidden = true;
+
+  // hide generate button and question list
+  document.getElementById("fortune-generating").hidden = true;
+
 }
 
 

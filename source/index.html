@@ -27,7 +27,7 @@
     <!-- Navbar -->
     <nav class="nav">
         <a href="#" onclick="displayHomeScreen()" class="nav-item ">Home</a>
-        <a href="#" class="nav-item ">History</a>
+        <a href="#" onclick="displayHistoryScreen()" class="nav-item ">History</a>
         <span class="nav-indicator"></span>
     </nav>
     <!-- Main Display -->
@@ -49,13 +49,15 @@
         </div>
     </section>
     
-    <!-- Dropdown Input Box (populated by backend) -->
-    <select id = "question-list">
-    </select>
-
-    <!-- Generate Button -->
-    <button id="generate-btn">Generate</button>
-
+    <section id="fortune-generating">
+        <div class="container-col">
+            <!-- Dropdown Input Box (populated by backend) -->
+            <select id = "question-list">
+            </select>
+            <!-- Generate Button -->
+            <button id="generate-btn">Generate</button>
+        </div>
+    </section>
     
     <!-- History -->
     <section id="history-section">
@@ -67,7 +69,7 @@
     </section>
 
     <!-- Renaming Popup for History -->
-    <section id="popup-section">
+    <section>
         <div id="popup" class="popup-container">
             <div class="popup-box">
                 <label for="new-name">New Name:</label>
