@@ -394,3 +394,8 @@ h3 {
   font-weight: bold;
   border-radius: 30px;
 }
+
+#question-list option:selected {
+  background-color: #83818c;
+}
+
