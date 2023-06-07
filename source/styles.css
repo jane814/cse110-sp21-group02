@@ -188,7 +188,7 @@ p {
   border-radius: 8px 8px 0 0;
 }
 
-@media (width <= 580px) {
+@media (width <=580px) {
   .nav {
     overflow: auto;
   }
@@ -304,10 +304,11 @@ h3 {
 .card-container {
   transition: all 0.3s ease;
   perspective: 800px;
-  padding-left: 1%;
+  /* padding-left: 1%;*/
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .cardflip {
@@ -359,6 +360,7 @@ h3 {
     margin-left: 4%;
   }
 }
+
 .card-text {
   position: absolute;
   top: 50%;
@@ -367,4 +369,19 @@ h3 {
   font-size: 16px;
   text-align: center;
   flex-wrap: wrap;
+}
+
+#meaning {
+  display: flex;
+  width: 750px;
+  height: 750px;
+  overflow: hidden;
+}
+
+#meaning p {
+  font-size: 16px;
+}
+
+#meaning, .card-container {
+  width: 750px;
 }
