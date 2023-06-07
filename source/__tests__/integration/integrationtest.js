@@ -43,7 +43,7 @@ describe('Basic user flow for Website', () => {
     it('Checking History', async () => {
         console.log('Checking History...');
         // Select and click history button
-        const buttons = await page.$$("a");
+        const buttons = await page.$$('a');
         console.log(buttons);
         const histButton = buttons[1];
         await histButton.click();
@@ -55,7 +55,7 @@ describe('Basic user flow for Website', () => {
         // Expect fortune displayed to not be empty
         const meaning = await page.$('#meaning');
         let exists =false;
-        let classList = await meaning.getProperty("classList");
+        let classList = await meaning.getProperty('classList');
         if(classList.length !=0 ){
           exists = true;
         }
