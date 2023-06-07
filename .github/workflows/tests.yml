@@ -23,4 +23,4 @@ jobs:
 
       - name: Jest
         id: jest
-        run: npx jest
+        run: npm run test
