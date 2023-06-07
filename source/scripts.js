@@ -293,7 +293,7 @@ function init() {
 }
 
 /**
- * TODO: Displays the history of readings
+ * Displays the history of readings
  */
 function renderHistory(){
   let readings = getReadings();
@@ -315,35 +315,58 @@ function renderHistory(){
     let historyItem = document.createElement('div');
     historyItem.classList.add('history-item');
     historyItem.id = `history-item-${historyObj.id}`;
+
+    // Populate history images
     for (let i = 0; i < historyObj.cardImgs.length; i++) {
       let historyItemImg = document.createElement('img');
       historyItemImg.classList.add('history-item-img');
       historyItemImg.src = historyObj.cardImgs[i];
       historyItem.appendChild(historyItemImg);
     }
-    let historyItemText = document.createElement('div');
-    historyItemText.classList.add('history-item-text');
-    historyItemText.innerHTML = `<p>${historyObj.name}</p>`;
-    historyItem.appendChild(historyItemText);
+
+    // Populate history name
+    let historyItemName = document.createElement('div');
+    historyItemName.classList.add('history-item-text');
+    historyItemName.innerHTML = `<p>${historyObj.name}</p>`;
+    historyItem.appendChild(historyItemName);
+
+    // Create the 3 history buttons
     let historyItemBtns = document.createElement('div');
     historyItemBtns.classList.add('history-item-btns');
-    let historyItemBtn = document.createElement('button');
-    historyItemBtn.classList.add('history-item-btn-delete');
-    historyItemBtn.innerHTML = 'Delete';
-    historyItemBtn.addEventListener('click', () => {
+    let deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('history-item-btn-delete');
+    deleteBtn.innerHTML = 'Delete';
+    deleteBtn.addEventListener('click', () => {
       deleteReading(historyObj.id);
       renderHistory();
     });
-    historyItemBtns.appendChild(historyItemBtn);
-    let historyItemBtn2 = document.createElement('button');
-    historyItemBtn2.classList.add('history-item-btn-display');
-    historyItemBtn2.innerHTML = 'Display';
-    historyItemBtn2.addEventListener('click', () => {
+    let displayBtn = document.createElement('button');
+    displayBtn.classList.add('history-item-btn-display');
+    displayBtn.innerHTML = 'Display';
+    displayBtn.addEventListener('click', () => {
       currentReading = getReading(historyObj.id);
       displayReading();
     });
-    historyItemBtns.appendChild(historyItemBtn2);
+    let renameBtn = document.createElement('button');
+    renameBtn.classList.add('history-item-btn-rename');
+    renameBtn.innerHTML = 'Rename';
+    renameBtn.addEventListener('click', () => {
+      let renamePopupBtn = document.getElementById('popup-rename-btn');
+      renamePopupBtn.onclick = () => {
+        let newName = document.getElementById('new-name').value;
+        renameReading(newName, historyObj.id);
+        renderHistory();
+        closePopup();
+      };
+      openPopup();
+    });
+    
+    
+    historyItemBtns.appendChild(renameBtn);
+    historyItemBtns.appendChild(deleteBtn);
+    historyItemBtns.appendChild(displayBtn);
     historyItem.appendChild(historyItemBtns);
+
     history.appendChild(historyItem);
   }
 
@@ -573,6 +596,21 @@ function retryHandler() {
   const reading = generateReading(question);
   currentReading = reading;
   displayReading(); 
+}
+
+function openPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function rename() {
+  var newName = document.getElementById("new-name").value;
+  // Perform the renaming operation here or handle the value as needed
+  alert("Renaming to: " + newName);
+  closePopup();
 }
 
 // Run init() after page loads
