@@ -272,3 +272,17 @@ h3 {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+/* card position */
+#display-img-left{
+    width: 250px; 
+    height: 250px;
+}
+#display-img-mid{
+    width: 250px; 
+    height: 250px;
+}
+#display-img-right{
+    width: 250px; 
+    height: 250px;
+}
