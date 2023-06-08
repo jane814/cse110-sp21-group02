@@ -1,6 +1,8 @@
 // The current reading object displayed on the page
 let currentReading = {};
 
+let allowCardFlips = false;
+
 // The drawable tarot cards (only the Major Arcana for now)
 const cards = [
   'The Fool', 'The Magician', 'The High Priestess',
@@ -293,6 +295,8 @@ function init() {
   // Added: on load, we should be at the home screen, so call displayHomeScreen
   displayHomeScreen();
 
+  flipcard();
+
   // Commented out because of retry button removal
   //document.getElementById('retry').addEventListener('click', retryHandler);
 }
@@ -567,7 +571,7 @@ function generateHandler() {
 
   displayReading();
 
-  flipcard();
+  allowCardFlips = true;
 
 }
 
@@ -619,6 +623,8 @@ function displayReading() {
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
   meaning.style.display = 'block';
+
+  allowCardFlips = true;
 }
 
 
@@ -673,6 +679,12 @@ function displayHomeScreen() {
   // show generate button and question list
   document.getElementById('fortune-generating').hidden = false;
 
+  allowCardFlips = false;
+
+  let cardFlips = document.querySelectorAll('.cardflip');
+  cardFlips.forEach(function (cardFlip) {
+    cardFlip.classList.toggle('flipped', false);
+  });
 }
 
 /**
@@ -695,7 +707,6 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
 
   // hide generate button and question list
   document.getElementById('fortune-generating').hidden = true;
-
 }
 
 /**
@@ -732,6 +743,8 @@ function displaySavedFortune() {
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
   meaning.style.display = 'block';
+
+  allowCardFlips = true;
 }
 
 
@@ -760,17 +773,12 @@ try {
 }
 
 function flipcard() { // eslint-disable-line no-unused-vars
-  var cardFlips = document.querySelectorAll('.cardflip');
+  let cardFlips = document.querySelectorAll('.cardflip');
   cardFlips.forEach(function (cardFlip) {
     cardFlip.addEventListener('click', function () {
-      this.classList.toggle('flipped');
+      if (allowCardFlips) {
+        this.classList.toggle('flipped');
+      }
     });
-  });
-}
-
-function removeflipcard() { // eslint-disable-line no-unused-vars
-  var cardFlips = document.querySelectorAll('.cardflip');
-  cardFlips.forEach(function(cardFlip) {
-    cardFlip.removeEventListener('click', flipcard);
   });
 }
