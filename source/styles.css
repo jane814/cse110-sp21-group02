@@ -13,6 +13,21 @@ body {
   animation: movement 10s linear infinite;
 }
 
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.2); 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.3); 
+}
+
 /* cloud movement */
 @keyframes movement {
   0% {
@@ -188,7 +203,7 @@ p {
   border-radius: 8px 8px 0 0;
 }
 
-@media (width <= 580px) {
+@media (width <=580px) {
   .nav {
     overflow: auto;
   }
@@ -304,10 +319,11 @@ h3 {
 .card-container {
   transition: all 0.3s ease;
   perspective: 800px;
-  padding-left: 1%;
+  /* padding-left: 1%;*/
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .cardflip {
@@ -359,6 +375,7 @@ h3 {
     margin-left: 4%;
   }
 }
+
 .card-text {
   position: absolute;
   top: 50%;
@@ -366,5 +383,48 @@ h3 {
   transform: translate(-50%, -50%);
   font-size: 16px;
   text-align: center;
-  flex-wrap: wrap;
 }
+
+textarea{
+  color: #8da1ff;
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  border: none;
+  resize: none;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  background: rgb(197,235,253);
+  background: linear-gradient(180deg, rgba(197,235,253,1) 0%, rgba(167,230,251,1) 99%);
+
+}
+#history {
+  align-items: start;
+}
+
+#meaning {
+  display: flex;
+  width: 750px;
+  overflow: hidden;
+}
+
+#meaning p {
+  font-size: 16px;
+}
+
+#meaning, .card-container {
+  width: 750px;
+}
+
+#question-list {
+  background-color: #fff;
+  padding: 16px;
+  font-family: "DM Sans", sans-serif;
+  color: #83818c;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+#question-list option:selected {
+  background-color: #83818c;
+}
+

@@ -40,8 +40,9 @@
             <div class="back">
                 <img src="./images/back.png" id="display-back-left" alt="">
                 <div class="card-text">
-                    Your Text Here
-                  </div>
+                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                </textarea>
+                </div>
             </div>
         </div>
         <div class="cardflip">
@@ -51,8 +52,9 @@
             <div class="back">
                 <img src="./images/back.png" id="display-back-mid" alt="">
                 <div class="card-text">
-                    Your Text Here
-                  </div>
+                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                    </textarea>
+                </div>
             </div>
         </div>
         <div class="cardflip">
@@ -62,40 +64,40 @@
             <div class="back">
                 <img src="./images/back.png" id="display-back-right" alt="">
                 <div class="card-text">
-                    Your Text Here 
-                    futureReading: 'When the Devil appears in the future position, it indicates that you will soon encounter a phase where you will have to confront your fears, temptations, or negative influences in your life. This card suggests that in the future, you will be presented with opportunities to break free from unhealthy attachments, confront your shadow self, and regain control over your life. The Devil card encourages you to stay vigilant, seek support if needed, and be prepared to face challenges with strength and determination. It promises that the future holds liberation, personal growth, and a chance to create a more positive and empowering path.',
-                  </div>
+                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                        </textarea>
+                </div>
             </div>
         </div>
     </div>
 
-    <section id="fortune-showing">
-        <!-- Meaning Box -->
+    <!-- Meaning Box -->
+    <section id="meaning-section">
         <p id="meaning">Meaning</p>
-        <div class="container">
-            <button id="save">Save</button>
-            <!--
-                Commented out, feature is redundant due to generate button being available
-                <button id="retry" class="to-show">Retry</button>
-            -->
-        </div>
     </section>
+    <div class="container">
+        <button id="save">Save</button>
+        <!--
+            Commented out, feature is redundant due to generate button being available
+            <button id="retry" class="to-show">Retry</button>
+        -->
+    </div>
     
     <section id="fortune-generating">
         <div class="container-col">
             <!-- Dropdown Input Box (populated by backend) -->
-            <select id = "question-list">
+            <select id="question-list">
             </select>
             <!-- Generate Button -->
             <button id="generate-btn">Generate</button>
         </div>
     </section>
-    
+
     <!-- History -->
     <section id="history-section">
         <div class="container-col">
             <h2>History</h2>
-            <div class="container" id="history">
+            <div class="container-col" id="history">
             </div>
         </div>
     </section>
@@ -106,7 +108,7 @@
             <div class="popup-box">
                 <label for="new-name">New Name:</label>
                 <input type="text" id="new-name" />
-        
+
                 <button id="popup-rename-btn">Rename</button>
                 <button onclick="closePopup()">Close</button>
             </div>

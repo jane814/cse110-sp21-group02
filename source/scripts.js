@@ -1,6 +1,8 @@
 // The current reading object displayed on the page
 let currentReading = {};
 
+let allowCardFlips = false;
+
 // The drawable tarot cards (only the Major Arcana for now)
 const cards = [
   'The Fool', 'The Magician', 'The High Priestess',
@@ -293,6 +295,8 @@ function init() {
   // Added: on load, we should be at the home screen, so call displayHomeScreen
   displayHomeScreen();
 
+  flipcard();
+
   // Commented out because of retry button removal
   //document.getElementById('retry').addEventListener('click', retryHandler);
 }
@@ -350,7 +354,10 @@ function renderHistory() {
     displayBtn.innerHTML = 'Display';
     displayBtn.addEventListener('click', () => {
       currentReading = getReading(historyObj.id);
-      displayReading();
+      // change HERE
+      //displayReading();
+      // Changed: this now calls displaySavedFortune
+      displaySavedFortune();
     });
     let renameBtn = document.createElement('button');
     renameBtn.classList.add('history-item-btn-rename');
@@ -485,11 +492,10 @@ function deleteAllReadings() {
 function generateReading(question) {
   const drawnCards = drawCards();
 
-  let fortune = `Your past card is ${drawnCards[0]}, your present card is ${drawnCards[1]}, and your future card is ${drawnCards[2]}.`;
-  fortune += cardResponseData[drawnCards[0]].pastReading;
-  fortune += cardResponseData[drawnCards[1]].presentReading;
-  fortune += cardResponseData[drawnCards[2]].futureReading;
+  let fortune = ''
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
+
+  
 
   if (totalWeight >= -15 && totalWeight < -9) {
     // -15 to -10
@@ -515,6 +521,9 @@ function generateReading(question) {
     cards: drawnCards,    // Names of the cards drawn
     fortune: fortune,     // The fortune text
     userInput: question, // The user input question
+    pastMeaning: cardResponseData[drawnCards[0]].pastReading,
+    presentMeaning: cardResponseData[drawnCards[1]].presentReading,
+    futureMeaning: cardResponseData[drawnCards[2]].futureReading
   };
 
   return tarotReading;
@@ -562,7 +571,7 @@ function generateHandler() {
 
   displayReading();
 
-  flipcard();
+  allowCardFlips = true;
 
 }
 
@@ -586,10 +595,20 @@ function displayReading() {
 
   // New approach:
   // show save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = false;
+  document.getElementById('save').hidden = false;
+  document.getElementById('meaning-section').hidden = false;
 
   // show history section
   document.getElementById('history-section').hidden = false;
+
+  
+  const firstCardMeaning = document.querySelector('.cardmeaning');
+  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
+  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+
+  firstCardMeaning.textContent = currentReading.pastMeaning;
+  secondCardMeaing.textContent = currentReading.presentMeaning;
+  thirdCardMeaning.textContent = currentReading.futureMeaning;
 
   // Commented out because of retry button removal
   //let retryButton = document.getElementById('retry');
@@ -604,6 +623,8 @@ function displayReading() {
   <p>Cards: ${currentReading.cards.join(', ')}</p>
   <p>${currentReading.fortune}</p>`;
   meaning.style.display = 'block';
+
+  allowCardFlips = true;
 }
 
 
@@ -648,7 +669,9 @@ function displayHomeScreen() {
   document.getElementById('display-img-right').src = './images/cloudback.png';
 
   // hide save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = true;
+  //document.getElementById('fortune-showing').hidden = true;
+  document.getElementById('meaning-section').hidden = true;
+  document.getElementById('save').hidden = true;
 
   // show card images
   document.querySelector('.card-container').style.display = 'flex';
@@ -656,6 +679,12 @@ function displayHomeScreen() {
   // show generate button and question list
   document.getElementById('fortune-generating').hidden = false;
 
+  allowCardFlips = false;
+
+  let cardFlips = document.querySelectorAll('.cardflip');
+  cardFlips.forEach(function (cardFlip) {
+    cardFlip.classList.toggle('flipped', false);
+  });
 }
 
 /**
@@ -672,11 +701,50 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
   document.querySelector('.card-container').style.display = 'none';
 
   // hide save button and fortune meaning
-  document.getElementById('fortune-showing').hidden = true;
+  //document.getElementById('fortune-showing').hidden = true;
+  document.getElementById('meaning-section').hidden = true;
+  document.getElementById('save').hidden = true;
 
   // hide generate button and question list
   document.getElementById('fortune-generating').hidden = true;
+}
 
+/**
+ * Display a saved fortune
+ * This function will be similar to the displayReading function, but without the option of generating a new reading
+ */
+function displaySavedFortune() {
+  // show cards from fortune
+  let imageLeft = document.getElementById('display-img-left');
+  let imageMid = document.getElementById('display-img-mid');
+  let imageRight = document.getElementById('display-img-right');
+
+  // hide card images
+  document.querySelector('.card-container').style.display = 'flex';
+
+  // hide save button, this will display an already saved fortune
+  document.getElementById('save').hidden = true;
+
+  // show meaning, aka the fortune itself
+  document.getElementById('meaning-section').hidden = false;
+
+  // show history section
+  document.getElementById('history-section').hidden = false;
+
+  // hide question list and generate button
+  document.getElementById('fortune-generating').hidden = true;
+
+  imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
+  imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
+  imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
+
+  let meaning = document.getElementById('meaning');
+  meaning.innerHTML = `
+  <p>Cards: ${currentReading.cards.join(', ')}</p>
+  <p>${currentReading.fortune}</p>`;
+  meaning.style.display = 'block';
+
+  allowCardFlips = true;
 }
 
 
@@ -705,17 +773,12 @@ try {
 }
 
 function flipcard() { // eslint-disable-line no-unused-vars
-  var cardFlips = document.querySelectorAll('.cardflip');
+  let cardFlips = document.querySelectorAll('.cardflip');
   cardFlips.forEach(function (cardFlip) {
     cardFlip.addEventListener('click', function () {
-      this.classList.toggle('flipped');
+      if (allowCardFlips) {
+        this.classList.toggle('flipped');
+      }
     });
-  });
-}
-
-function removeflipcard() { // eslint-disable-line no-unused-vars
-  var cardFlips = document.querySelectorAll('.cardflip');
-  cardFlips.forEach(function(cardFlip) {
-    cardFlip.removeEventListener('click', flipcard);
   });
 }
