@@ -1,19 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    .button {
-        background-image: url('images/button.png');
-        width: 128px;
-        border: 0px;
-        margin: 7px 0 5px 7px;
-        padding: 3px 0 6px 0;
-        cursor: hand;
-        cursor: pointer;
-        color: #9fad19;
-        font-family: Tahoma;
-        font-size: 11px;
-    }
-</style>
 
 <head>
     <meta charset="UTF-8">
@@ -34,13 +20,15 @@
     <!-- Main Display -->
     <div class="card-container">
         <div class="cardflip">
-            <div class="front" id="display1">
-                <img src="./images/cloudback.png" id="display-img-left" alt="">
+            <div class="wrapper">
+                <div class="front" id="display1">
+                    <img src="./images/cloudback.png" id="display-img-left" alt="">
+                </div>
             </div>
             <div class="back">
                 <img src="./images/back.png" id="display-back-left" alt="">
                 <div class="card-text">
-                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                    <textarea class="cardmeaning" rows="15" cols="24"> Text Here
                 </textarea>
                 </div>
             </div>
@@ -52,7 +40,7 @@
             <div class="back">
                 <img src="./images/back.png" id="display-back-mid" alt="">
                 <div class="card-text">
-                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                    <textarea class="cardmeaning" rows="15" cols="24"> Text Here
                     </textarea>
                 </div>
             </div>
@@ -64,7 +52,7 @@
             <div class="back">
                 <img src="./images/back.png" id="display-back-right" alt="">
                 <div class="card-text">
-                    <textarea class="cardmeaning" rows="15" cols="23"> Text Here
+                    <textarea class="cardmeaning" rows="15" cols="24"> Text Here
                         </textarea>
                 </div>
             </div>
@@ -82,7 +70,7 @@
             <button id="retry" class="to-show">Retry</button>
         -->
     </div>
-    
+
     <section id="fortune-generating">
         <div class="container-col">
             <!-- Dropdown Input Box (populated by backend) -->

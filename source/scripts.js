@@ -668,6 +668,11 @@ function displayHomeScreen() {
   document.getElementById('display-img-mid').src = './images/cloudback.png';
   document.getElementById('display-img-right').src = './images/cloudback.png';
 
+  document.getElementById('display-img-left').style.transform = 'scale(1.3)';
+  document.getElementById('display-img-mid').style.transform = 'scale(1.3)';
+  document.getElementById('display-img-right').style.transform = 'scale(1.3)';
+
+
   // hide save button and fortune meaning
   //document.getElementById('fortune-showing').hidden = true;
   document.getElementById('meaning-section').hidden = true;
