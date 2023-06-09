@@ -2,7 +2,7 @@
 describe('Basic user flow for Website', () => {
     // Visit the web app
     beforeAll(async () => {
-      await page.goto('http://localhost:5500/source/');
+      await page.goto('http://127.0.0.1:5500/source/');
     });
   
     // Next user will generate a fortune 
