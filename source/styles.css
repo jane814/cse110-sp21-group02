@@ -139,7 +139,7 @@ p {
 .show {
   display: block;
 }
-
+/* style of the buttons */
 #generate-btn {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
@@ -163,6 +163,57 @@ p {
 }
 
 #generate-btn:focus {
+  outline: none;
+}
+
+.history-item-button-display {
+  background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
+  box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
+  margin-top: 25px;
+  text-align: center;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-button-display {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-button-display {
+  outline: none;
+}
+.history-item-button-delete {
+  background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
+  box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
+  margin-top: 25px;
+  text-align: center;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 55px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-button-delete {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-button-delete {
   outline: none;
 }
 
