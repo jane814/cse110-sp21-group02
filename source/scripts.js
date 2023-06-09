@@ -644,8 +644,9 @@ function displayReading(isFromHistory) {
 
   let meaning = document.getElementById('meaning');
   meaning.innerHTML = `
-  <p>Cards: ${currentReading.cards.join(', ')}</p>
-  <p>${currentReading.fortune}</p>`;
+    <h3>${currentReading.userInput}</h3>
+    <p>${currentReading.fortune}</p>
+  `;
   meaning.style.display = 'block';
 
   allowCardFlips = true;
@@ -726,7 +727,6 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
 
 // Run init() after page loads
 addEventListener('DOMContentLoaded', init);
-
 
 // Export functions for unit testing
 try {
