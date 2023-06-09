@@ -5,7 +5,7 @@
 ## Attendance
 - [x] Aaron
 - [x] Ian
-- [] Jane
+- [x] Jane
 - [x] Preston
 - [x] Zheng 
 - [x] Fuyao 
