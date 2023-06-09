@@ -1,6 +1,19 @@
 # Changelog
 This file contains the version log for the fortune teller project.
 
+## [v1.0.1] - 2023-06-07
+[`ae8608c`](https://github.com/cse110-sp23-group02/cse110-sp23-group02/commit/ae8608c3ffd9c8fc87d5be8f2899c3ff3f902c28) - Bug fixes
+### Bugs fixed
+- Cards do not flip on homepage anymore
+- History page is vertical
+- Display button sends users to a new page
+- Styling for scroll bar has been added
+- Styling has been updated
+
+### Next Steps
+- Fix the card dimensions
+- Change the card images to match the theme
+
 ## [v1.0.0] - 2023-06-07
 [`8e7d75b`](https://github.com/cse110-sp21-group02/cse110-sp21-group02/commit/8e7d75b4fd8467e37d758096d9f612cba1b61652) - First fully functioning version
 ### Key features added
