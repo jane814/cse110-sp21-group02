@@ -55,14 +55,20 @@ h1 {
   line-height: 97px;
 }
 
-h2,
-h3 {
+h2{
   color: white;
   font-family: "DM Sans", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 48px;
+}
+
+h3{
+  font-family: "DM Sans", sans-serif;
+  color: black;
+  margin-top: 5%;
+  font-size: x-large;
 }
 
 p {
@@ -406,15 +412,16 @@ h3 {
 }
 
 textarea {
+  margin-top: -10px;
   border-radius: 15px;
   font-size: 17px;
-  /* color: #8da1ff; */
   font-family: "DM Sans", sans-serif;
   font-style: normal;
   border: none;
   resize: none;
   background-repeat: no-repeat;
   cursor: pointer;
+  text-align: center;
   background: rgb(197, 235, 253);
   background: linear-gradient(180deg, rgba(197, 235, 253, 1) 0%, rgba(167, 230, 251, 1) 99%);
 }

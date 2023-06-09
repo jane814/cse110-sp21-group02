@@ -603,12 +603,18 @@ function displayReading() {
 
   
   const firstCardMeaning = document.querySelector('.cardmeaning');
-  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1]; // Select the second occurrence
-  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2]; 
+  const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1];
+  const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2];
+  const firstCardTitle = document.querySelector('.cardTitle');
+  const secondCardTitle = document.querySelectorAll('.cardTitle')[1];
+  const thirdCardTitle = document.querySelectorAll('.cardTitle')[2];
 
   firstCardMeaning.textContent = currentReading.pastMeaning;
   secondCardMeaing.textContent = currentReading.presentMeaning;
   thirdCardMeaning.textContent = currentReading.futureMeaning;
+  firstCardTitle.textContent = currentReading.cards[0];
+  secondCardTitle.textContent = currentReading.cards[1];
+  thirdCardTitle.textContent = currentReading.cards[2];
 
   // Commented out because of retry button removal
   //let retryButton = document.getElementById('retry');
