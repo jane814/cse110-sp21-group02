@@ -1,6 +1,7 @@
 // The current reading object displayed on the page
 let currentReading = {};
 
+// Global to determine when to allow card flips
 let allowCardFlips = false;
 
 // The drawable tarot cards (only the Major Arcana for now)
@@ -193,6 +194,7 @@ const predefinedQuestions = [
   'Where is fear holding me back?'
 ];
 
+// Canned responses to the predefined questions with different sentiment scores
 const predefinedQuestionResponses = {
   'How can I create more balance in my friendships?': {
     cautious: 'Tread with caution as you navigate the delicate dance of connection. Look within, reflect upon your actions, and communicate openly with your companions. Take heed of boundaries, for they shall guard the equilibrium. Yet remember, each friendship is a unique tapestry, woven with intricate threads. Exercise prudence and remember that harmony blooms through understanding, empathy, and the nurturing of yourself and others.',
@@ -267,46 +269,47 @@ const predefinedQuestionResponses = {
 };
 
 /**
- * Sets up the page, adding event listeners and filling the questions list.
- * Called immediately on load of this file.
+ * Sets up the page, adding event listeners and initial values.
+ * Called after the page has loaded.
  */
 function init() {
   // Add predefined questions to the questions list
-  renderHistory();
   const selectMenu = document.getElementById('question-list');
-
   for (var i = 0; i < predefinedQuestions.length; i++) {
     var question = document.createElement('option');
     question.text = predefinedQuestions[i];
     selectMenu.appendChild(question);
   }
-  //Calling functions when click on button
+
+  // Connect handlers with buttons
   document.getElementById('generate-btn').addEventListener('click', generateHandler);
   document.getElementById('save').addEventListener('click', () => {
     if (currentReading && currentReading != {}) {
       saveReading(currentReading);
     } else {
-      // TODO: make pretty error
       alert('No reading to save');
     }
     renderHistory();
   });
 
-  // Added: on load, we should be at the home screen, so call displayHomeScreen
+  // On load, we should start at the home screen
   displayHomeScreen();
 
-  flipcard();
+  // Setup history initial values
+  renderHistory();
 
-  // Commented out because of retry button removal
-  //document.getElementById('retry').addEventListener('click', retryHandler);
+  // Setup card flipping functionality
+  setupCardFlips();
 }
 
 /**
- * Displays the history of readings
+ * Displays the history of readings by generating the HTML elements
  */
 function renderHistory() {
-  let readings = getReadings();
   let historyList = [];
+
+  // fetch the stored readings and populate history List
+  let readings = getReadings();
   for (let index in readings) {
     let reading = readings[index];
     let historyObj = {
@@ -317,8 +320,12 @@ function renderHistory() {
     };
     historyList.push(historyObj);
   }
+
+  // Clear current history display
   let history = document.getElementById('history');
   history.innerHTML = '';
+
+  // Populate the history display
   for (let index in readings) {
     let historyObj = historyList[index];
     let historyItem = document.createElement('div');
@@ -339,26 +346,11 @@ function renderHistory() {
     historyItemName.innerHTML = `<p>${historyObj.name}</p>`;
     historyItem.appendChild(historyItemName);
 
-    // Create the 3 history buttons
+    // Create wrapper for the history action buttons
     let historyItemBtns = document.createElement('div');
     historyItemBtns.classList.add('history-item-btns');
-    let deleteBtn = document.createElement('button');
-    deleteBtn.classList.add('history-item-btn-delete');
-    deleteBtn.innerHTML = 'Delete';
-    deleteBtn.addEventListener('click', () => {
-      deleteReading(historyObj.id);
-      renderHistory();
-    });
-    let displayBtn = document.createElement('button');
-    displayBtn.classList.add('history-item-btn-display');
-    displayBtn.innerHTML = 'Display';
-    displayBtn.addEventListener('click', () => {
-      currentReading = getReading(historyObj.id);
-      // change HERE
-      //displayReading();
-      // Changed: this now calls displaySavedFortune
-      displaySavedFortune();
-    });
+
+    // Create and add functionality for RENAME button
     let renameBtn = document.createElement('button');
     renameBtn.classList.add('history-item-btn-rename');
     renameBtn.innerHTML = 'Rename';
@@ -373,34 +365,70 @@ function renderHistory() {
       openPopup();
     });
 
+    // Create and add functionality for DELETE button
+    let deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('history-item-btn-delete');
+    deleteBtn.innerHTML = 'Delete';
+    deleteBtn.addEventListener('click', () => {
+      deleteReading(historyObj.id);
+      renderHistory();
+    });
 
+    // Create and add functionality for DISPLAY button
+    let displayBtn = document.createElement('button');
+    displayBtn.classList.add('history-item-btn-display');
+    displayBtn.innerHTML = 'Display';
+    displayBtn.addEventListener('click', () => {
+      currentReading = getReading(historyObj.id);
+      let isFromHistory = true;
+      displayReading(isFromHistory);
+    });
+
+    // Add buttons to the item wrapper
     historyItemBtns.appendChild(renameBtn);
     historyItemBtns.appendChild(deleteBtn);
     historyItemBtns.appendChild(displayBtn);
     historyItem.appendChild(historyItemBtns);
 
+    // Add item wrapper to the current history display
     history.appendChild(historyItem);
   }
-
 }
+
+/**
+ * Sets up the card flipping functionality
+ */
+function setupCardFlips() {
+  let cardFlips = document.querySelectorAll('.cardflip');
+  cardFlips.forEach(function (cardFlip) {
+    cardFlip.addEventListener('click', function () {
+      if (allowCardFlips) {
+        this.classList.toggle('flipped');
+      }
+    });
+  });
+}
+
 /**
  * Retrieves user's question from the text box
- * @returns {string} The user input text
+ * @returns {string} The user input text (from predefinedQuestions)
  * @returns null if the user input isn't valid (no selection made)
  */
-
 function getUserInputText() {
-  // For predefined questions (offline mode)
+  // Get the current input from dropdown selector
   const input = document.getElementById('question-list').value;
-  // check to see if the current input is the disabled one
+
+  // Check to see if the current input is the disabled one
   if (input === '') {
     return null;
   }
+
   return input;
 }
 
 /**
- * @returns {Array} The array of readings from localStorage
+ * Retrieves all readings from localStorage
+ * @returns {Array} The array of readings from localStorage or an empty array if none exist
  */
 function getReadings() {
   let readings = localStorage.getItem('readings');
@@ -412,6 +440,7 @@ function getReadings() {
 }
 
 /**
+ * Saves an array of readings to localStorage overwriting any existing readings
  * @param {Array} readings The array of readings to save to localStorage
  */
 function saveReadings(readings) {
@@ -425,39 +454,45 @@ function saveReadings(readings) {
 function saveReading(reading) {
   let readings = getReadings();
 
-  //dont allow duplicate ids
+  // Dont allow duplicate ids
   if (readings.find((r) => r.id == reading.id)) {
     return;
   }
 
-  //update array of readings before saving it to localStorage
+  // Update array of readings before saving it to localStorage
   readings.push(reading);
+
   saveReadings(readings);
 }
 
 /**
- * Renames reading, saves to localStorage
+ * Renames reading, saves to localStorage. If none found, this does nothing.
  * @param {string} name The new name of the reading
  * @param {string} id The id of the reading to rename
  */
 function renameReading(name, id) {
   let readings = getReadings();
+
   //find reading that matches the id
   for (let i = 0; i < readings.length; i++) {
     let reading = readings[i];
     if (reading.id == id) {
       reading.name = name;
+      break;
     }
   }
+  
   saveReadings(readings);
 }
 
 /**
+ * Retrieves a specific reading form localStorage
  * @param {string} id The id of the reading to get
- * @returns {Object} The reading object
+ * @returns {Object} The reading object or null if not found
  */
 function getReading(id) {
   let readings = getReadings();
+
   //find reading that matches the id
   for (let i = 0; i < readings.length; i++) {
     let reading = readings[i];
@@ -465,9 +500,13 @@ function getReading(id) {
       return reading;
     }
   }
+
+  // no readings found matching id
+  return null;
 }
 
 /**
+ * Deletes a reading from localStorage
  * @param {string} id The id of the reading to delete
  */
 function deleteReading(id) {
@@ -485,45 +524,40 @@ function deleteAllReadings() {
 
 /**
  * Creates a reading object from the user input text
- * 
  * @param {string} question The user selected question
  * @returns {Object} The reading object
  */
 function generateReading(question) {
+  // Randomly choose the 3 cards for the reading automatically
   const drawnCards = drawCards();
 
-  let fortune = ''
+  // Determine sentiment based on card positions
   const totalWeight = cardResponseData[drawnCards[0]].pastWeight + cardResponseData[drawnCards[1]].presentWeight + cardResponseData[drawnCards[2]].futureWeight;
 
-  
-
+  // Determine the fortune based on the sentiment
+  let fortune;
   if (totalWeight >= -15 && totalWeight < -9) {
-    // -15 to -10
-    fortune += predefinedQuestionResponses[question].cautious;
+    fortune = predefinedQuestionResponses[question].cautious;
   } else if (totalWeight >= -9 && totalWeight < -3) {
-    // -9 to -4
-    fortune += predefinedQuestionResponses[question].uncertain;
+    fortune = predefinedQuestionResponses[question].uncertain;
   } else if (totalWeight >= -3 && totalWeight <= 3) {
-    // -3 to 3
-    fortune += predefinedQuestionResponses[question].neutral;
+    fortune = predefinedQuestionResponses[question].neutral;
   } else if (totalWeight > 3 && totalWeight <= 9) {
-    // 4 to 9
-    fortune += predefinedQuestionResponses[question].positive;
+    fortune = predefinedQuestionResponses[question].positive;
   } else {
-    // 10 to 15
-    fortune += predefinedQuestionResponses[question].veryPositive;
+    fortune = predefinedQuestionResponses[question].veryPositive;
   }
 
   let tarotReading = {
     id: Date.now(),       // Unique ID of the reading (Unix Timestamp (ms))
-    name: new Date().toLocaleString(),      // Name of the reading
+    name: new Date().toLocaleString(), // Name of the reading (defaulted to time)
     time: Date.now(),     // Time of reading (Unix Timestamp (ms))
     cards: drawnCards,    // Names of the cards drawn
     fortune: fortune,     // The fortune text
-    userInput: question, // The user input question
-    pastMeaning: cardResponseData[drawnCards[0]].pastReading,
-    presentMeaning: cardResponseData[drawnCards[1]].presentReading,
-    futureMeaning: cardResponseData[drawnCards[2]].futureReading
+    userInput: question,  // The user input question
+    pastMeaning: cardResponseData[drawnCards[0]].pastReading, // The meaning of the past card
+    presentMeaning: cardResponseData[drawnCards[1]].presentReading, // The meaning of the present card
+    futureMeaning: cardResponseData[drawnCards[2]].futureReading // The meaning of the future card
   };
 
   return tarotReading;
@@ -532,12 +566,12 @@ function generateReading(question) {
 
 /**
  * Chooses 3 cards from the deck
- * @returns {Array} The array of card NAMES
+ * @returns {Array} The array of the 3 selected card NAMES
  */
 function drawCards() {
-  // Get a random number between 0 and the number of cards
-  // random select 3 cards no duplicates
   const cardsToDraw = 3;
+
+  // Randomly selects 3 indexes (no duplicates)
   const randomIndexes = [];
   while (randomIndexes.length < cardsToDraw) {
     const randomIndex = Math.floor(Math.random() * cards.length);
@@ -557,57 +591,45 @@ function drawCards() {
 
 /**
  * Handler for the generate button on click.
- * Changes the display image and meaning text.
+ * Displays the cards and the fortune.
  * Updates the currentReading variable.
  */
 function generateHandler() {
-
-
   let question = getUserInputText();
-
   const reading = generateReading(question);
-
   currentReading = reading;
-
-  displayReading();
-
+  const isFromHistory = false;
+  displayReading(isFromHistory);
   allowCardFlips = true;
-
 }
 
 /**
- * Displays the currentReading
+ * Displays the currentReading. Hides the generation button and selector
+ * if the reading is selected from the history.
+ * @param {boolean} isFromHistory True if the reading is from the history, false otherwise
  */
-function displayReading() {
+function displayReading(isFromHistory) {
   let imageLeft = document.getElementById('display-img-left');
   let imageMid = document.getElementById('display-img-mid');
   let imageRight = document.getElementById('display-img-right');
 
-  document.getElementById('display1').hidden = false;
-  document.getElementById('display2').hidden = false;
-  document.getElementById('display3').hidden = false;
-  // Commented out, replaced with new approach for showing these elements
-  // let meaning = document.getElementById('meaning');
-  // meaning.classList.toggle('show', true);
-
-  // let saveButton = document.getElementById('save');
-  // saveButton.classList.toggle('show', true);
-
-  // New approach:
-  // show save button and fortune meaning
+  document.querySelector('.card-container').style.display = 'flex';
   document.getElementById('save').hidden = false;
   document.getElementById('meaning-section').hidden = false;
-
-  // show history section
   document.getElementById('history-section').hidden = false;
-
+  if (isFromHistory) {
+    // hide question list and generate button
+    document.getElementById('fortune-generating').hidden = true;
+    // hide save button
+    document.getElementById('save').hidden = true;
+  }
   
   const firstCardMeaning = document.querySelector('.cardmeaning');
   const secondCardMeaing = document.querySelectorAll('.cardmeaning')[1];
   const thirdCardMeaning = document.querySelectorAll('.cardmeaning')[2];
-  const firstCardTitle = document.querySelector('.cardTitle');
-  const secondCardTitle = document.querySelectorAll('.cardTitle')[1];
-  const thirdCardTitle = document.querySelectorAll('.cardTitle')[2];
+  const firstCardTitle = document.querySelector('.card-title');
+  const secondCardTitle = document.querySelectorAll('.card-title')[1];
+  const thirdCardTitle = document.querySelectorAll('.card-title')[2];
 
   firstCardMeaning.textContent = currentReading.pastMeaning;
   secondCardMeaing.textContent = currentReading.presentMeaning;
@@ -615,10 +637,6 @@ function displayReading() {
   firstCardTitle.textContent = currentReading.cards[0];
   secondCardTitle.textContent = currentReading.cards[1];
   thirdCardTitle.textContent = currentReading.cards[2];
-
-  // Commented out because of retry button removal
-  //let retryButton = document.getElementById('retry');
-  //retryButton.classList.toggle('show', true);
 
   imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
   imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
@@ -632,19 +650,6 @@ function displayReading() {
 
   allowCardFlips = true;
 }
-
-
-/**
- * Handler for the retry button on click. 
- * Generates a new reading with the same question as the currentReading.
- * Update: Commented out, feature is redundant due to generate button being available
- */
-// function retryHandler() { 
-//   let question = currentReading.userInput;
-//   const reading = generateReading(question);
-//   currentReading = reading;
-//   displayReading(); 
-// }
 
 /**
  * Opens the popup for renaming a reading
@@ -680,7 +685,6 @@ function displayHomeScreen() {
 
 
   // hide save button and fortune meaning
-  //document.getElementById('fortune-showing').hidden = true;
   document.getElementById('meaning-section').hidden = true;
   document.getElementById('save').hidden = true;
 
@@ -690,8 +694,9 @@ function displayHomeScreen() {
   // show generate button and question list
   document.getElementById('fortune-generating').hidden = false;
 
+  
+  // unflip cards and disable flipping
   allowCardFlips = false;
-
   let cardFlips = document.querySelectorAll('.cardflip');
   cardFlips.forEach(function (cardFlip) {
     cardFlip.classList.toggle('flipped', false);
@@ -712,7 +717,6 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
   document.querySelector('.card-container').style.display = 'none';
 
   // hide save button and fortune meaning
-  //document.getElementById('fortune-showing').hidden = true;
   document.getElementById('meaning-section').hidden = true;
   document.getElementById('save').hidden = true;
 
@@ -720,52 +724,13 @@ function displayHistoryScreen() { // eslint-disable-line no-unused-vars
   document.getElementById('fortune-generating').hidden = true;
 }
 
-/**
- * Display a saved fortune
- * This function will be similar to the displayReading function, but without the option of generating a new reading
- */
-function displaySavedFortune() {
-  // show cards from fortune
-  let imageLeft = document.getElementById('display-img-left');
-  let imageMid = document.getElementById('display-img-mid');
-  let imageRight = document.getElementById('display-img-right');
-
-  // hide card images
-  document.querySelector('.card-container').style.display = 'flex';
-
-  // hide save button, this will display an already saved fortune
-  document.getElementById('save').hidden = true;
-
-  // show meaning, aka the fortune itself
-  document.getElementById('meaning-section').hidden = false;
-
-  // show history section
-  document.getElementById('history-section').hidden = false;
-
-  // hide question list and generate button
-  document.getElementById('fortune-generating').hidden = true;
-
-  imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
-  imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
-  imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
-
-  let meaning = document.getElementById('meaning');
-  meaning.innerHTML = `
-  <p>Cards: ${currentReading.cards.join(', ')}</p>
-  <p>${currentReading.fortune}</p>`;
-  meaning.style.display = 'block';
-
-  allowCardFlips = true;
-}
-
-
 // Run init() after page loads
 addEventListener('DOMContentLoaded', init);
 
+
+// Export functions for unit testing
 try {
   module.exports = {
-    init,
-    getUserInputText,
     getReadings,
     saveReadings,
     saveReading,
@@ -773,23 +738,8 @@ try {
     getReading,
     deleteReading,
     deleteAllReadings,
-    generateReading,
-    drawCards,
-    generateHandler,
-    //retryHandler,
-    displayReading,
+    generateReading
   };
 } catch {
   // do nothing, running in browser
-}
-
-function flipcard() { // eslint-disable-line no-unused-vars
-  let cardFlips = document.querySelectorAll('.cardflip');
-  cardFlips.forEach(function (cardFlip) {
-    cardFlip.addEventListener('click', function () {
-      if (allowCardFlips) {
-        this.classList.toggle('flipped');
-      }
-    });
-  });
 }
