@@ -316,7 +316,7 @@ function renderHistory() {
       id: reading.id,
       time: reading.time,
       name: reading.name,
-      cardImgs: [`./images/Major Arcana/${reading.cards[0]}.jpeg`, `./images/Major Arcana/${reading.cards[1]}.jpeg`, `./images/Major Arcana/${reading.cards[2]}.jpeg`],
+      cardImgs: [`./images/Major Arcana/${reading.cards[0]}.png`, `./images/Major Arcana/${reading.cards[1]}.png`, `./images/Major Arcana/${reading.cards[2]}.png`],
     };
     historyList.push(historyObj);
   }
@@ -638,9 +638,9 @@ function displayReading(isFromHistory) {
   secondCardTitle.textContent = currentReading.cards[1];
   thirdCardTitle.textContent = currentReading.cards[2];
 
-  imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.jpeg';
-  imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.jpeg';
-  imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.jpeg';
+  imageLeft.src = './images/Major Arcana/' + currentReading.cards[0] + '.png';
+  imageMid.src = './images/Major Arcana/' + currentReading.cards[1] + '.png';
+  imageRight.src = './images/Major Arcana/' + currentReading.cards[2] + '.png';
 
   let meaning = document.getElementById('meaning');
   meaning.innerHTML = `
@@ -676,14 +676,9 @@ function displayHomeScreen() {
   document.getElementById('history-section').hidden = true;
 
   // change card images back to their defaults
-  document.getElementById('display-img-left').src = './images/cloudback.png';
-  document.getElementById('display-img-mid').src = './images/cloudback.png';
-  document.getElementById('display-img-right').src = './images/cloudback.png';
-
-  document.getElementById('display-img-left').style.transform = 'scale(1.3)';
-  document.getElementById('display-img-mid').style.transform = 'scale(1.3)';
-  document.getElementById('display-img-right').style.transform = 'scale(1.3)';
-
+  document.getElementById('display-img-left').src = './images/ccb.jpeg';
+  document.getElementById('display-img-mid').src = './images/ccb.jpeg';
+  document.getElementById('display-img-right').src = './images/ccb.jpeg';
 
   // hide save button and fortune meaning
   document.getElementById('meaning-section').hidden = true;
