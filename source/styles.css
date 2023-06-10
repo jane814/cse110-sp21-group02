@@ -302,26 +302,29 @@ h3 {
 
 #display-img-left {
   position: absolute;
-  top: 0;
-  left: 8%;
-  width: 250px;
-  height: 250px;
+  margin-top: 4%;
+  left: 10%;
+  width: 283px;
+  height: 363px;
+  border-radius: 15px;
 }
 
 #display-img-mid {
   position: absolute;
-  top: 0;
-  left: 13%;
-  width: 250px;
-  height: 250px;
+  margin-top: 4%;
+  left: 10%;
+  width: 283px;
+  height: 363px;
+  border-radius: 15px;
 }
 
 #display-img-right {
   position: absolute;
-  top: 0;
-  left: 18%;
-  width: 250px;
-  height: 250px;
+  margin-top: 4%;
+  left: 10%;
+  width: 283px;
+  height: 363px;
+  border-radius: 15px;
 }
 
 
@@ -361,23 +364,16 @@ h3 {
 .cardflip .front,
 .cardflip .back {
   display: block;
-  /* height: 100%;
-    width: 100%;
-    line-height: 60px;
-    color: white;  */
   text-align: center;
-  /* font-size: 4em; */
   backface-visibility: hidden;
 }
 
 .cardflip.flipped .front {
   opacity: 0;
-  transition: opacity 1s;
-}
+  transition: opacity 0.5s;
+} 
 
 .cardflip .back {
-  /* margin-top: -30px;
-    padding-top: 10%; */
   font-size: 16px;
   text-align: center;
   line-height: 20px;
@@ -425,6 +421,7 @@ textarea {
   background: rgb(197, 235, 253);
   background: linear-gradient(180deg, rgba(197, 235, 253, 1) 0%, rgba(167, 230, 251, 1) 99%);
 }
+
 #history {
   align-items: start;
 }
@@ -461,7 +458,6 @@ textarea {
 }
 
 /* card hover */
-
 .wrapper {
   transition: all 0.5s;
   position: absolute;
