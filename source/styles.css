@@ -146,12 +146,12 @@ p {
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
   margin-top: 25px;
   text-align: center;
-  width: 200px;
+  width: 120px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  height: 55px;
+  height: 33px;
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
@@ -167,54 +167,109 @@ p {
   outline: none;
 }
 
-.history-item-button-display {
+.history-item-btn-display {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
-  margin-top: 25px;
+  margin-top: 7px;
   text-align: center;
-  width: 200px;
+  width: 80px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  height: 55px;
+  height: 22px;
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
 }
 
-.history-item-button-display {
+.history-item-btn-display:hover {
   background-position: 100% 0;
   transition: all 0.4s ease-in-out;
 }
 
-.history-item-button-display {
+.history-item-btn-display:focus {
   outline: none;
 }
-.history-item-button-delete {
+.history-item-btn-delete {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
-  margin-top: 25px;
+  margin-top: 7px;
   text-align: center;
-  width: 200px;
+  width: 80px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
   cursor: pointer;
-  height: 55px;
+  height: 22px;
   border: none;
   background-size: 300% 100%;
   border-radius: 50px;
   transition: all 0.4s ease-in-out;
 }
 
-.history-item-button-delete {
+.history-item-btn-delete:hover {
   background-position: 100% 0;
   transition: all 0.4s ease-in-out;
 }
 
-.history-item-button-delete {
+.history-item-btn-delete:focus {
+  outline: none;
+}
+
+.history-item-btn-rename {
+  background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
+  box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
+  margin-top: 7px;
+  text-align: center;
+  width: 80px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 22px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-btn-rename:hover {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+.history-item-btn-rename:focus {
+  outline: none;
+}
+
+#save {
+  outline: none;
+}
+#save {
+  background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
+  box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
+  margin-top: 20px;
+  text-align: center;
+  width: 80px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  height: 22px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  transition: all 0.4s ease-in-out;
+}
+
+#save:hover {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+}
+
+#save:focus {
   outline: none;
 }
 
