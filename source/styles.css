@@ -140,6 +140,7 @@ p {
 .show {
   display: block;
 }
+
 /* style of the buttons */
 #generate-btn {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
@@ -192,6 +193,7 @@ p {
 .history-item-btn-display:focus {
   outline: none;
 }
+
 .history-item-btn-delete {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
@@ -244,9 +246,6 @@ p {
   outline: none;
 }
 
-#save {
-  outline: none;
-}
 #save {
   background-image: linear-gradient(to right, #70c4e9, #6b99e9, #04befe, #72a2ea);
   box-shadow: 0 4px 15px 0 rgba(65 132 234 75%);
